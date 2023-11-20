@@ -19,7 +19,7 @@ const Articles = () => {
       slideShow(1)
     }, 3000)
 
-    // return clearTimeout(tId);
+    return clearTimeout(tId);
 
   }, [currentSlide] )
 

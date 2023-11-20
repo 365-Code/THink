@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React from 'react'
 
 const Footer = () => {
@@ -16,7 +17,13 @@ const Footer = () => {
 
             <div className="logo flex items-center gap-2 font-semibold text-lg">
                 <div className="h-[48px] w-[48px] overflow-hidden rounded-full">
-                    <img 
+                    {/* <img 
+                    src="https://img.freepik.com/free-photo/young-woman-abstract-autumn-beauty-nature-generated-by-ai_188544-10645.jpg?ga=GA1.1.1835354613.1698558582&semt=ais_ai_generated"
+                    alt="" 
+                    className="h-full w-full object-cover object-center" /> */}
+                    <Image
+                    width={64}
+                    height={64} 
                     src="https://img.freepik.com/free-photo/young-woman-abstract-autumn-beauty-nature-generated-by-ai_188544-10645.jpg?ga=GA1.1.1835354613.1698558582&semt=ais_ai_generated"
                     alt="" 
                     className="h-full w-full object-cover object-center" />

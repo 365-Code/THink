@@ -1,7 +1,8 @@
 "use client"
+import Image from 'next/image';
 import React, { useState } from 'react'
 
-const page = () => {
+const Page = () => {
 
   const [ctg, setCtg] = useState(Array<string>);
   const [sCtg, setSctg] = useState('');
@@ -48,8 +49,7 @@ const page = () => {
   return (
     <main className="my-container-1 flex h-screen flex-col space-y-4">
       <div id="image" className="flex h-[8rem] cursor-pointer items-center justify-center overflow-hidden rounded-xl hover:bg-[#141312]">
-        {/* <!-- <img src="https://cdn-icons.flaticon.com/svg/3917/3917465.svg?token=exp=1700372289~hmac=5fd41ec912417929377692ab76e527c0" alt="add-thumbnail" className="w-12 h-12"> --> */}
-        <img src="https://img.freepik.com/free-photo/view-robot-human-businessperson_23-2150911961.jpg" alt="" className="h-full w-full object-cover object-center" />
+        <Image width={1000} height={100} src="https://img.freepik.com/free-photo/view-robot-human-businessperson_23-2150911961.jpg" alt="" className="h-full w-full object-cover object-center" />
       </div>
 
       <div id="title" className=" relative flex flex-col gap-2 sm:flex-row">
@@ -69,13 +69,11 @@ const page = () => {
       <ul className="flex text-sm gap-2">
           {
               ctg?.map( (ctg, i)=>(
-                  <div>
-                  <li key={ctg} 
+                  <li key={i} 
                   className={`relative border px-2 py-1 rounded-lg ${clrs[i%(clrsLength)].border} ${clrs[i%(clrsLength)].bg}`}>
                     {ctg}
                     <i onClick={()=>(removeCtg(ctg))} className={`fi fi-sr-circle-xmark absolute -right-2 -top-2 cursor-pointer ${clrs[i%(clrsLength)].text}`} />
                   </li>
-                  </div>
                   )
               )
           }
@@ -90,4 +88,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

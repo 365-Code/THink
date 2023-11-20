@@ -1,4 +1,5 @@
 import splitWords from '@/lib'
+import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
@@ -6,7 +7,9 @@ const Article = (article: { profile: string, user: string, thumbnail: string, ti
   return (
     <div className="transition-all min-w-full max-w-full inner-container relative overflow-hidden rounded-lg">
       <div className="absolute left-0 top-0 h-full w-full opacity-60">
-        <img
+        <Image
+          height={200}
+          width={1000}
           src={article.thumbnail}
           alt="" className="h-full w-full object-cover object-center" />
       </div>
@@ -14,7 +17,7 @@ const Article = (article: { profile: string, user: string, thumbnail: string, ti
       <div className="relative space-y-2 text-center">
         <div className="mx-auto transition-all flex justify-between w-fit gap-2 items-center rounded-full bg-white hover:bg-[#121212] hover:text-white cursor-pointer px-3 py-2 text-black">
           <div className=" h-[40px] w-[40px] cursor-pointer overflow-hidden rounded-full">
-            <img src={article.profile} alt="" className="h-full w-full object-cover object-center" />
+            <Image width={64} height={64} src={article.profile} alt="" className="h-full w-full object-cover object-center" />
           </div>
           <span className='font-semibold'>{article.user}</span>
         </div>

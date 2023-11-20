@@ -4,7 +4,7 @@ import { useParams } from 'next/navigation'
 import React from 'react'
 import Comments from '@/components/Comments'
 
-const page = () => {
+const Page = () => {
 
     const {blog} = useParams()
 
@@ -23,4 +23,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
