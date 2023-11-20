@@ -5,7 +5,7 @@ const Contact = () => {
     <section id="contact" className="my-container-1 flex flex-col sm:flex-row  items-center gap-4 justify-between bg-black">
     <div className="sm:text-left sm:w-1/2 w-full text-center">
       <h3 className="sm:text-3xl text-xl font-semibold">Subscribe for New Content</h3>
-      <p className="font-light w-4/5">Wanna ask something? Just type it and get in touch. Lorem, ipsum.</p>
+      <p className="font-light sm:w-4/5">Wanna ask something? Just type it and get in touch. Lorem, ipsum.</p>
     </div>
 
     <div className="sm:w-1/2 w-full px-4">
