@@ -66,7 +66,7 @@ const Page = () => {
         </div>
         <input type="text" placeholder="Enter Title" className="w-full rounded-lg border-none p-2 outline-none" />
       </div>
-      <ul className="flex text-sm gap-2">
+      <ul className="flex text-sm gap-2 flex-wrap">
           {
               ctg?.map( (ctg, i)=>(
                   <li key={i} 

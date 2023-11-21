@@ -30,7 +30,7 @@ const Blog = (blog:{thumbnail:string, category:Array<string>, title:string, desc
                         {/* <img src="https://img.freepik.com/free-photo/row-rings-with-word-love-them_1340-38627.jpg" alt="" className="h-full w-full object-cover object-center" /> */}
                         <Image width={1000} height={200} src="https://img.freepik.com/free-photo/row-rings-with-word-love-them_1340-38627.jpg" alt="" className="h-full w-full object-cover object-center" />
                     </div>
-                    <ul className="flex text-sm gap-2">
+                    <ul className="flex text-sm gap-2 flex-wrap">
                         {
                             blog.category?.map( (ctg, i)=>(
                                 <li key={ctg} className={`border px-2 py-1 rounded-lg ${clrs[i%4].border} ${clrs[i%4].bg}`}>{ctg}</li>
