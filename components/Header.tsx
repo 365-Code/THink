@@ -1,12 +1,19 @@
+"use client"
 import { avatar, logo } from '@/lib'
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import React from 'react'
 
 const Header = () => {
-  return (
 
-    <header className="my-container-2 w-screen flex items-center justify-between gap-4">
+  const pathname = usePathname();
+
+  return (
+  <>
+    {
+      ((pathname !== '/auth/login') && (pathname !== '/auth/register') ) &&
+      <header className="my-container-2 w-screen flex items-center justify-between gap-4">
       <Link href={"/"} className="logo flex items-center gap-2 font-semibold">
         <div className="h-[48px] w-[48px] cursor-pointer overflow-hidden rounded-full">
           <Image
@@ -46,6 +53,8 @@ const Header = () => {
       </div>
 
     </header>
+  }
+  </>
   )
 }
 

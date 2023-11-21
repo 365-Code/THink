@@ -1,9 +1,16 @@
+"use client"
 import { logo } from '@/lib'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation';
 import React from 'react'
 
 const Footer = () => {
+  const pathname = usePathname();
+
     return (
+        <>
+        {
+            ((pathname !== '/auth/login') && (pathname !== '/auth/register') ) &&
 
         <footer className="my-container-1 relative flex items-center justify-between flex-col-reverse gap-4">
             <div className="flex items-center gap-4 ">
@@ -30,6 +37,10 @@ const Footer = () => {
 
             <p className="text-sm">&copy;2023. All right reserved.</p>
         </footer>
+        }
+
+
+        </>
 
     )
 }

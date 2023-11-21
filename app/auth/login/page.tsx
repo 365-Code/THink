@@ -3,11 +3,11 @@ import React from 'react'
 
 const Page = () => {
   return (
-    <main className='my-8 flex justify-center items-center'>
+    <main className='h-screen flex justify-center items-center'>
 
-        <div className='bg-[#181818] p-8 rounded-lg space-y-4'>
+        <div className='max-w-[95%] bg-[#181818] p-8 rounded-lg space-y-4'>
 
-            <div className='flex gap-4'>
+            <div className='flex sm:flex-row flex-col gap-4'>
 
                 <div className='group/input flex gap-4 bg-[#222222] px-5 py-3 justify-center rounded-lg hover:bg-[#181818] cursor-pointer transition-all'>
                     <i className="fi fi-brands-google text-rose-500 group-hover/input:text-white transition-all" />
@@ -36,9 +36,9 @@ const Page = () => {
                     <i className="fi fi-rr-lock" />
                     <input type="password" placeholder='Enter Password' className='p-2 w-full bg-transparent' />
                 </div>
-                <div className='flex items-center justify-between text-sm p-2'>
+                <div className='flex sm:flex-row flex-col items-center justify-between text-sm p-2'>
                     <div className='flex gap-2 items-center'>
-                        <input checked type="checkbox" name="" id="" className='accent-blue-500'/>
+                        <input defaultChecked type="checkbox" name="" id="" className='accent-blue-500'/>
                         <span>Remember Me</span>
                     </div>
                     <Link href={'/'} className='text-rose-500'>Forgot Password?</Link>
