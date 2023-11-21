@@ -1,3 +1,4 @@
+import { avatar, logo } from '@/lib'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
@@ -8,14 +9,10 @@ const Header = () => {
     <header className="my-container-2 w-screen flex items-center justify-between gap-4">
       <Link href={"/"} className="logo flex items-center gap-2 font-semibold">
         <div className="h-[48px] w-[48px] cursor-pointer overflow-hidden rounded-full">
-          {/* <img 
-          src="https://img.freepik.com/free-photo/young-woman-abstract-autumn-beauty-nature-generated-by-ai_188544-10645.jpg?ga=GA1.1.1835354613.1698558582&semt=ais_ai_generated" 
-          alt="" 
-          className="h-full w-full object-cover object-center" /> */}
           <Image
           width={64}
           height={64} 
-          src="https://img.freepik.com/free-photo/young-woman-abstract-autumn-beauty-nature-generated-by-ai_188544-10645.jpg?ga=GA1.1.1835354613.1698558582&semt=ais_ai_generated" 
+          src={logo} 
           alt="" 
           className="h-full w-full object-cover object-center" />
         </div>
@@ -31,14 +28,13 @@ const Header = () => {
       </nav>
 
       <div className='rounded-full space-x-2 flex'>
-        <button className='hover:text-[#121212] border hover:bg-white text-white transition-all px-4 py-2 rounded-full'>Log In</button>
-        <button className='text-[#121212] bg-white transition-all px-4 py-2 rounded-full'>Sign Up</button>
+        <Link href={'/auth/login'} className='hover:text-[#121212] border hover:bg-white text-white transition-all px-4 py-1 rounded-full'>Log In</Link>
+        <Link href={'/auth/register'} className='text-[#121212] bg-white transition-all px-4 py-1 rounded-full'>Sign Up</Link>
       </div>
       <div className="hidden items-center gap-4">
 
         <div id="profile" className="h-[36px] w-[36px] cursor-pointer overflow-hidden rounded-full">
-          {/* <img src="https://img.freepik.com/free-photo/view-3d-man-holding-soda-can_23-2150709928.jpg" alt="" className="h-full w-full object-cover object-center" /> */}
-          <Image width={64} height={64} src="https://img.freepik.com/free-photo/view-3d-man-holding-soda-can_23-2150709928.jpg" alt="" className="h-full w-full object-cover object-center" />
+          <Image width={64} height={64} src={avatar} alt="" className="h-full w-full object-cover object-center" />
         </div>
 
         <div className='cursor-pointer'>
