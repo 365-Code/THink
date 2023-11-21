@@ -33,7 +33,7 @@ const Blog = (blog:{thumbnail:string, category:Array<string>, title:string, desc
                     <ul className="flex text-sm gap-2 flex-wrap">
                         {
                             blog.category?.map( (ctg, i)=>(
-                                <li key={ctg} className={`border px-2 py-1 rounded-lg ${clrs[i%4].border} ${clrs[i%4].bg}`}>{ctg}</li>
+                                <li key={ctg} className={`select-none border px-2 py-1 rounded-lg ${clrs[i%4].border} ${clrs[i%4].bg}`}>{ctg}</li>
                                 )
                             )
                         }

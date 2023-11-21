@@ -70,7 +70,7 @@ const Page = () => {
           {
               ctg?.map( (ctg, i)=>(
                   <li key={i} 
-                  className={`relative border px-2 py-1 rounded-lg ${clrs[i%(clrsLength)].border} ${clrs[i%(clrsLength)].bg}`}>
+                  className={`select-none relative border px-2 py-1 rounded-lg ${clrs[i%(clrsLength)].border} ${clrs[i%(clrsLength)].bg}`}>
                     {ctg}
                     <i onClick={()=>(removeCtg(ctg))} className={`fi fi-sr-circle-xmark absolute -right-2 -top-2 cursor-pointer ${clrs[i%(clrsLength)].text}`} />
                   </li>

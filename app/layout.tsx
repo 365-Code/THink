@@ -4,6 +4,9 @@ import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const inter = Inter({ subsets: ['latin'] })
 const firaCode = Fira_Code({ subsets: ['latin'] })
 const raleway = Raleway({subsets: ['latin']})
@@ -23,6 +26,18 @@ export default function RootLayout({
       <body className={raleway.className} >
           <Header/>
               {children}
+          <ToastContainer 
+          position="top-center"
+          autoClose={2000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="colored"
+          />
           <Footer/>
       </body>
     </html>

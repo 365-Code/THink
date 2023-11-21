@@ -1,7 +1,46 @@
+"use client"
+import { auth } from '@/utils/firebase';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import Link from 'next/link'
-import React from 'react'
+import { useRouter } from 'next/navigation';
+import React, { useState } from 'react'
+import {toast} from 'react-toastify'
 
 const Page = () => {
+
+    const [credentials, setCredentials] = useState({
+        email: '',
+        password: ''
+    });
+
+    const nav = useRouter();
+
+    const handleChange = (e:any)=>{
+        const {name, value} = e.target;
+        setCredentials((pCred)=>{
+            return {
+                ...pCred,
+                [name]: value
+            }
+        })
+    }
+
+    const signIn = async (e:any)=>{
+        e.preventDefault();
+
+        try {
+            const response = await signInWithEmailAndPassword(auth,credentials.email, credentials.password)
+            
+            toast.success("Login Successful");
+            nav.push('/')
+            
+        } catch (error) {
+            toast.error("Invalid credentials. Please try again.")
+        }
+
+    }
+
+
   return (
     <main className='h-screen flex justify-center items-center'>
 
@@ -26,15 +65,16 @@ const Page = () => {
                 <hr className='w-full border-[#f1f1f1]'/>
             </div>
 
+            <form onSubmit={signIn}>
             <div className='space-y-4'>
 
                 <div className='border focus-within:border-blue-500 flex items-center gap-2 px-2 rounded-lg transition-all'>
                     <i className="fi fi-sr-at" />
-                    <input type="email" autoComplete='off' placeholder='Enter Email' className='p-2 w-full bg-transparent' />
+                    <input onChange={handleChange} name='email' value={credentials.email} type="email" autoComplete='off' placeholder='Enter Email' className='autofill:!bg-transparent p-2 w-full bg-transparent' />
                 </div>
                 <div className='border focus-within:border-blue-500 flex items-center gap-2 px-2 rounded-lg transition-all'>
                     <i className="fi fi-rr-lock" />
-                    <input type="password" placeholder='Enter Password' className='p-2 w-full bg-transparent' />
+                    <input onChange={handleChange} name='password' value={credentials.password} type="password" placeholder='Enter Password' className='p-2 w-full bg-transparent' />
                 </div>
                 <div className='flex sm:flex-row flex-col items-center justify-between text-sm p-2'>
                     <div className='flex gap-2 items-center'>
@@ -44,8 +84,10 @@ const Page = () => {
                     <Link href={'/'} className='text-rose-500'>Forgot Password?</Link>
                 </div>
 
-                <button className='p-2 font-semibold bg-blue-500 hover:bg-blue-600 rounded-lg w-full'>Sign in</button>
+                <button type='submit' className='p-2 font-semibold bg-blue-500 hover:bg-blue-600 rounded-lg w-full'>Sign in</button>
             </div>
+            </form>
+
 
             <p className='text-sm text-center p-2'>You haven&apos;t any account?<Link href={'/auth/register'} className='text-rose-500 underline'>Sign up</Link></p>
 
