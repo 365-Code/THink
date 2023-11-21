@@ -32,7 +32,6 @@ h1,h2,h3,h4,h5,h6{
 
 body::-webkit-scrollbar{
   width: 5px;
-  /* background-color: #f4f3f2; */
 }
 
 body::-webkit-scrollbar-thumb{
@@ -62,7 +61,7 @@ footer::before{
   top: 0;
   left: 0;
   /* background: url(https://img.freepik.com/free-photo/abstract-circular-blinds-oscillation-background-3d-rings-wavy-surface-geometric-elements-displacement_1217-2527.jpg?size=626&ext=jpg&ga=GA1.1.1835354613.1698558582&semt=ais) no-repeat center center/cover; */
-  background: url(https://img.freepik.com/free-vector/realistic-polygonal-background_52683-59998.jpg?size=626&ext=jpg&ga=GA1.1.1835354613.1698558582&semt=ais) no-repeat center center/cover;
+  background: url('https://img.freepik.com/free-vector/realistic-polygonal-background_52683-59998.jpg?size=626&ext=jpg&ga=GA1.1.1835354613.1698558582&semt=ais') no-repeat center center/cover;
   opacity: 0.8;
   z-index: -1;
 }
@@ -100,7 +99,6 @@ footer::before{
 }
 
 .my-container-1{
-  /* @apply sm:px-[5rem] px-8 py-12; */
   @apply sm:px-[5rem] p-12;
 }
 

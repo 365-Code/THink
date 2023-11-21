@@ -1,3 +1,4 @@
+import { blogThumbnail } from '@/lib'
 import Image from 'next/image'
 import React from 'react'
 
@@ -27,8 +28,7 @@ const Blog = (blog:{thumbnail:string, category:Array<string>, title:string, desc
             <div className="md:basis-3/5 space-y-4">
                 <div className="space-y-2">
                     <div className="w-full h-[300px] rounded-lg overflow-hidden">
-                        {/* <img src="https://img.freepik.com/free-photo/row-rings-with-word-love-them_1340-38627.jpg" alt="" className="h-full w-full object-cover object-center" /> */}
-                        <Image width={1000} height={200} src="https://img.freepik.com/free-photo/row-rings-with-word-love-them_1340-38627.jpg" alt="" className="h-full w-full object-cover object-center" />
+                        <Image width={1000} height={200} src={blogThumbnail} alt="" className="h-full w-full object-cover object-center" />
                     </div>
                     <ul className="flex text-sm gap-2 flex-wrap">
                         {

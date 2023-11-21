@@ -1,7 +1,8 @@
-import splitWords from '@/lib'
+import { splitWords } from '@/lib'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+
 
 const Article = (article: { profile: string, user: string, thumbnail: string, title: string, description: string }) => {
   return (

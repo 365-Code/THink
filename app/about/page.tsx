@@ -6,10 +6,6 @@ const Page = () => {
     <div className='my-container flex sm:flex-row flex-col gap-2 items-center sm:items-start sm:justify-center py-8'>
 
         <div className='w-[300px] h-[320px] overflow-hidden rounded-lg'>
-            {/* <img 
-            className='h-full w-full object-cover object-center'
-            src="https://img.freepik.com/free-photo/3d-portrait-high-school-teenager_23-2150793937.jpg?ga=GA1.1.1835354613.1698558582&semt=ais_ai_generated" 
-            alt="me" /> */}
             <Image 
             width={300}
             height={350}

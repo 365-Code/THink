@@ -11,15 +11,13 @@ const Articles = () => {
   }
 
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [push, setPush] = useState(false);
 
   useEffect(()=>{
 
-    const tId = setTimeout(()=>{
+    setTimeout(()=>{
       slideShow(1)
     }, 3000)
 
-    return clearTimeout(tId);
 
   }, [currentSlide] )
 
@@ -73,20 +71,6 @@ const Articles = () => {
           <i onClick={()=>{slideShow(-1)}} className="fi fi-rr-caret-left hover:bg-black transition-all absolute text-xl cursor-pointer left-0 top-1/2 -translate-y-1/2 bg-black/50 px-2 py-4" />
           <i onClick={()=>{slideShow(1)}} className="fi fi-rr-caret-right hover:bg-black transition-all absolute text-xl cursor-pointer right-0 top-1/2 -translate-y-1/2 bg-black/50 px-2 py-4" />
 
-          {/* <div className='min-w-full translate-x-full'>
-            <Article profile='https://img.freepik.com/free-photo/view-3d-man-holding-soda-can_23-2150709928.jpg' 
-          user='Anonymous' 
-          thumbnail='https://img.freepik.com/premium-photo/blockchain-technology-network-concept-businessman-blockchain-hand-with-icons-network-connection-blue-security-digital-connection-background_10221-21771.jpg' 
-          title='Discover Article About Artificial Intelligence' 
-          description='Lorem ipsum dolor sit amet consectetur,Lorem ipsum dolor sit. adipisicing elit. Rem, quis voluptas laudantium eum saepe atque fugit velit sequi.' />
-          </div>
-          <div className='min-w-full'>
-            <Article profile='https://img.freepik.com/free-photo/view-3d-man-holding-soda-can_23-2150709928.jpg' 
-        user='Anonymous' 
-        thumbnail='https://img.freepik.com/premium-photo/blockchain-technology-network-concept-businessman-blockchain-hand-with-icons-network-connection-blue-security-digital-connection-background_10221-21771.jpg' 
-        title='Discover Article About Quantam Computers' 
-        description='Lorem ipsum dolor sit amet consectetur,Lorem ipsum dolor sit. adipisicing elit. Rem, quis voluptas laudantium eum saepe atque fugit velit sequi.' />
-          </div> */}
         </div>
 
 
