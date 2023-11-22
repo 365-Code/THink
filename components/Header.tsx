@@ -18,15 +18,9 @@ const Header = () => {
 
   useEffect(() => {
 
-    const listen = ()=>{
       onAuthStateChanged(auth, (user:any)=>{
         user ? setAuthUser(user) : setAuthUser(null); 
       })
-    }
-
-    return ()=>{
-      listen();
-    }
   
   }, [])
 

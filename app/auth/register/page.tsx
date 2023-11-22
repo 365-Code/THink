@@ -31,6 +31,7 @@ const Page = () => {
         try{
             const response = await createUserWithEmailAndPassword(auth, credentials.email, credentials.password)
             toast.success("Registered Successfully")
+
             nav.push("/auth/login")
         }catch(error:any){
             console.log(error)
