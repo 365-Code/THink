@@ -1,9 +1,14 @@
+"use client"
 import Blogs from '@/components/Blogs'
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useSelector } from 'react-redux'
 
 const Page = () => {
+
+  
   return (
-    <Blogs />
+    // <Blogs blogs={allBlogs}/>
+    <Blogs/>
   )
 }
 

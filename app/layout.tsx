@@ -3,9 +3,13 @@ import { Fira_Code, Inter, Raleway } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import {Provider} from 'react-redux'
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { store } from '@/utils/redux/store'
+import Providers from '@/utils/redux/Providers'
+import ReduxProvider from '@/utils/redux/Providers'
 
 const inter = Inter({ subsets: ['latin'] })
 const firaCode = Fira_Code({ subsets: ['latin'] })
@@ -24,8 +28,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={raleway.className} >
+        <ReduxProvider>
           <Header/>
               {children}
+          <Footer/>
           <ToastContainer 
           position="top-center"
           autoClose={2000}
@@ -38,7 +44,7 @@ export default function RootLayout({
           pauseOnHover
           theme="colored"
           />
-          <Footer/>
+          </ReduxProvider>
       </body>
     </html>
   )

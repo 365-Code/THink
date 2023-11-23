@@ -1,13 +1,18 @@
+"use client"
 import React from 'react'
 import BlogCard from './BlogCard'
 import { blogCards } from '@/lib'
+import { useSelector } from 'react-redux'
 
-const Blogs = () => {
+const Blogs = (props:{blogs?:any}) => {
+
+  const blgs = useSelector( (state:any)=> state.blogReducer.blogs )
+  
   return (
     <main className="my-container-1">
     <div className="grid md:flex md:flex-wrap md:justify-between sm:grid-cols-2 grid-cols-1 gap-4 w-full sm:space-y-0 space-y-4 justify-items-center">
         {
-          blogCards.map((blog, i)=>(
+          blgs.map((blog:any, i:number)=>(
             <BlogCard key={i}
             thumbnail={blog} 
             title="BlogCard - 4" 

@@ -54,10 +54,10 @@ const Header = () => {
       </Link>
 
       <nav className="hidden flex-wrap items-center gap-8 md:flex">
-        <a href="/" className='hover-glow-text'>Home</a>
-        <a href="/blogs" className='hover-glow-text'>Blogs</a>
-        <a href="/:user/my-blogs" className='hover-glow-text'>My Blogs</a>
-        <a href="/about" className='hover-glow-text'>About</a>
+        <a href="/" className={`${pathname == '/' && "glow-text"} hover-glow-text`}>Home</a>
+        <a href="/blogs" className={`${pathname == '/blogs' && "glow-text"} hover-glow-text`}>Blogs</a>
+        <a href="/:user/my-blogs" className={`${pathname.endsWith('/my-blogs') && "glow-text"} hover-glow-text`}>My Blogs</a>
+        <a href="/about" className={`${pathname == '/about' && "glow-text"} hover-glow-text`}>About</a>
       </nav>
 
       {
