@@ -3,10 +3,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
 
-export default function BlogCard(blog:{thumbnail:any, title:string, description:string}){
+export default function BlogCard(blog:{id:string, thumbnail:string, title:string, description:string}){
 
     return (
-        <div className="max-w-[350px] w-full md:w-[320px] sm:max-w-[320px] space-y-2">
+        <div className="max-w-[350px] w-full sm:max-w-[320px] space-y-2">
 
             <div className="w-full h-[350px] rounded-lg overflow-hidden">
                 <Image width={400} height={400} src={blog.thumbnail} alt="" className="h-full w-full object-center object-cover hover:scale-105 transition-all" />
@@ -26,7 +26,7 @@ export default function BlogCard(blog:{thumbnail:any, title:string, description:
                 </div>
             </div>
             <div className='flex text-center items-center'>
-                <Link href={`/blogs/${blog.title}`} className="unselected w-full">Read More</Link>
+                <Link href={`/blogs/${blog.id}`} className="unselected w-full">Read More</Link>
             </div>
 
         </div>

@@ -8,6 +8,8 @@ const Page = () => {
 
     const {blog} = useParams()
 
+    
+
   return (
   <main className="my-container-1 min-h-screen gap-4 flex md:flex-row flex-col">
     

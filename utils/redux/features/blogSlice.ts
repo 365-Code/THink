@@ -2,9 +2,7 @@ import {createSlice, nanoid} from '@reduxjs/toolkit'
 
 
 const initialState: any = {
-    blogs: [{
-        thumbnail: "aldsfjasdf"
-    }]
+    blogs: [{}]
 }
 
 export const blogSlice = createSlice({

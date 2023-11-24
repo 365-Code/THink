@@ -43,16 +43,26 @@ const Page = () => {
     setCtg((prevCtg)=>([...prevCtg, category]))
   }
 
-  const addBlogHandler = ()=>{
-    const blog = {...blogData, categories: ctg}
-    // console.log(blog)
-    dispatch(addBlog(blog))
-    setBlogData({
-      thumbnail: "https://img.freepik.com/free-photo/view-robot-human-businessperson_23-2150911961.jpg",
-    title: "",
-    description: ""
-    })
-    // nav.push('/blogs')
+  // const addBlogHandler = ()=>{
+  //   const blog = {...blogData, categories: ctg}
+  //   // console.log(blog)
+  //   dispatch(addBlog(blog))
+  //   setBlogData({
+  //     thumbnail: "https://img.freepik.com/free-photo/view-robot-human-businessperson_23-2150911961.jpg",
+  //   title: "",
+  //   description: ""
+  //   })
+  //   // nav.push('/blogs')
+  // }
+
+  const addBlogHandler = async ()=>{
+
+    try{
+
+    } catch (error){
+      
+    }
+
   }
 
   return (

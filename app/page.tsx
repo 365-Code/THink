@@ -5,12 +5,13 @@ import Contact from '@/components/Contact'
 import Discover from '@/components/Discover'
 import { blogCards } from '@/lib'
 import { setBlogs } from '@/utils/redux/features/blogSlice'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 
 export default function Home() {
 
   const dispatch = useDispatch();
+
 
   useEffect(()=>{
     dispatch(setBlogs(blogCards))
@@ -21,9 +22,8 @@ export default function Home() {
     <main>
       <Discover/>
       <Articles/>
-      <Blogs/>
+      <Blogs blogs={blogCards}/>
       <Contact/>
-      
     </main>
   )
 }

@@ -1,6 +1,8 @@
 
 export function splitWords(sentence: string, count: number){
         
+    if(!sentence)
+        return
     let arr = sentence.split(" ", count);
     sentence = "";
 
@@ -45,8 +47,35 @@ export const footerBg = "https://img.freepik.com/free-vector/realistic-polygonal
 export const avatar = "https://img.freepik.com/free-photo/view-3d-man-holding-soda-can_23-2150709928.jpg"
 export const blogThumbnail = "https://img.freepik.com/free-photo/row-rings-with-word-love-them_1340-38627.jpg"
 export const blogCards = [
-    "https://img.freepik.com/premium-photo/ai-chat-bot-communicate-answer-question-busines-generative-ai_760510-535.jpg",
-    "https://img.freepik.com/free-photo/view-nature-landscape-with-river_23-2150763810.jpg",
-    "https://img.freepik.com/free-photo/futuristic-finance-digital-market-graph-user-interface-with-diagram-technology-hud-graphic-concept_90220-1365.jpg",
-    "https://img.freepik.com/free-photo/motherboard-closeup-technology-integrated-microchip-circuit-board-computer-processor-with-neon-light_90220-1203.jpg",
+    {
+        id: "ajsdlajsldfj2",
+        thumbnail:"https://img.freepik.com/premium-photo/ai-chat-bot-communicate-answer-question-busines-generative-ai_760510-535.jpg",
+        title: "What Is Next j and How Does It Work?",
+        description: "Next.js is a powerful JavaScript framework that is used for building server-side rendered (SSR) and static websites. It provides a seamless development experience by combining the best features of React, a popular JavaScript library for building user interfaces, and Node.js, a runtime environment for executing JavaScript code on the server-side. Next.js simplifies the process of creating dynamic web applications by offering features like automatic code splitting, server-side rendering, and static site generation. It allows developers to write their applications using React components and provides a routing system to handle different pages and routes. Next.js also offers built-in support for CSS modules, which enables developers to write modular and scoped CSS styles for their components. Overall, Next.js is a versatile framework that empowers developers to build high-performance web applications with ease.",
+        categories: ["Technical", "Web"]
+    },
+    {
+        id: "klajdlk",
+        thumbnail:"https://img.freepik.com/free-photo/view-nature-landscape-with-river_23-2150763810.jpg",
+        title: "What Is Next j and How Does It Work?",
+        description: "Next.js is a powerful JavaScript framework that is used for building server-side rendered (SSR) and static websites. It provides a seamless development experience by combining the best features of React, a popular JavaScript library for building user interfaces, and Node.js, a runtime environment for executing JavaScript code on the server-side. Next.js simplifies the process of creating dynamic web applications by offering features like automatic code splitting, server-side rendering, and static site generation. It allows developers to write their applications using React components and provides a routing system to handle different pages and routes. Next.js also offers built-in support for CSS modules, which enables developers to write modular and scoped CSS styles for their components. Overall, Next.js is a versatile framework that empowers developers to build high-performance web applications with ease.",
+        categories: ["Technical", "Web"]
+    },
+    {
+        id: "jiuhfkjdk",
+        thumbnail:"https://img.freepik.com/free-photo/futuristic-finance-digital-market-graph-user-interface-with-diagram-technology-hud-graphic-concept_90220-1365.jpg",
+        title: "What Is Next j and How Does It Work?",
+        description: "Next.js is a powerful JavaScript framework that is used for building server-side rendered (SSR) and static websites. It provides a seamless development experience by combining the best features of React, a popular JavaScript library for building user interfaces, and Node.js, a runtime environment for executing JavaScript code on the server-side. Next.js simplifies the process of creating dynamic web applications by offering features like automatic code splitting, server-side rendering, and static site generation. It allows developers to write their applications using React components and provides a routing system to handle different pages and routes. Next.js also offers built-in support for CSS modules, which enables developers to write modular and scoped CSS styles for their components. Overall, Next.js is a versatile framework that empowers developers to build high-performance web applications with ease.",
+        categories: ["Technical", "Web"]
+    },
+    {
+        id: "djbahfkabd",
+        thumbnail:"https://img.freepik.com/free-photo/motherboard-closeup-technology-integrated-microchip-circuit-board-computer-processor-with-neon-light_90220-1203.jpg",
+        title: "What Is Next j and How Does It Work?",
+        description: "Next.js is a powerful JavaScript framework that is used for building server-side rendered (SSR) and static websites. It provides a seamless development experience by combining the best features of React, a popular JavaScript library for building user interfaces, and Node.js, a runtime environment for executing JavaScript code on the server-side. Next.js simplifies the process of creating dynamic web applications by offering features like automatic code splitting, server-side rendering, and static site generation. It allows developers to write their applications using React components and provides a routing system to handle different pages and routes. Next.js also offers built-in support for CSS modules, which enables developers to write modular and scoped CSS styles for their components. Overall, Next.js is a versatile framework that empowers developers to build high-performance web applications with ease.",
+        categories: ["Technical", "Web"]
+    },
+    
+    
+    
 ]

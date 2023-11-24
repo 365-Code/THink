@@ -54,10 +54,10 @@ const Articles = () => {
         </div>
 
 
-        <div className='relative w-full flex overflow-hidden'>
+        <div className='relative w-full h-full flex overflow-hidden '>
           {
             art.map((a, i)=>(
-              <div key={i} id='article' className={`${i == currentSlide ? "z-1 opacity-100 min-w-full" : `opacity-0 w-0 h-0`} overflow-hidden transition-all ease-in-out`}>
+              <div key={i} id='article' className={`${i == currentSlide ? "z-1 block opacity-100" : `opacity-0 hidden`}  overflow-hidden transition-all ease-in-out`}>
                   <Article profile={a.profile} 
                   user={a.user} 
                   thumbnail={a.thumbnail}

@@ -15,7 +15,6 @@ const Header = () => {
 
   const [authUser, setAuthUser] = useState(null);
 
-
   useEffect(() => {
 
       onAuthStateChanged(auth, (user:any)=>{
@@ -54,10 +53,11 @@ const Header = () => {
       </Link>
 
       <nav className="hidden flex-wrap items-center gap-8 md:flex">
-        <a href="/" className={`${pathname == '/' && "glow-text"} hover-glow-text`}>Home</a>
-        <a href="/blogs" className={`${pathname == '/blogs' && "glow-text"} hover-glow-text`}>Blogs</a>
-        <a href="/:user/my-blogs" className={`${pathname.endsWith('/my-blogs') && "glow-text"} hover-glow-text`}>My Blogs</a>
-        <a href="/about" className={`${pathname == '/about' && "glow-text"} hover-glow-text`}>About</a>
+        <Link href="/" className={`${pathname == '/' && "glow-text"} hover-glow-text`}>Home</Link>
+        <Link href="/blogs" className={`${pathname == '/blogs' && "glow-text"} hover-glow-text`}>Blogs</Link>
+        <Link href="/:user/my-blogs" className={`${pathname.endsWith('/my-blogs') && "glow-text"} hover-glow-text`}>My Blogs</Link>
+        {/* <Link href="/:user/create-blog" className={`${pathname.endsWith('/my-blogs') && "glow-text"} hover-glow-text`}>create blog</Link> */}
+        <Link href="/about" className={`${pathname == '/about' && "glow-text"} hover-glow-text`}>About</Link>
       </nav>
 
       {
