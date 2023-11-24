@@ -6,7 +6,6 @@ export async function GET(request: Request){
     try{
         connectDB()
         const blogs = await blogModel.find({}).populate('postedBy')
-        console.log(blogs)
         return NextResponse.json({
             success: true,
             blogs

@@ -34,7 +34,7 @@ const Page = () => {
 
             nav.push("/auth/login")
         }catch(error:any){
-            console.log(error)
+            // console.log(error)
             const {code} = error
             toast.error(code)
         }

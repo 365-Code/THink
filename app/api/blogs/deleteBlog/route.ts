@@ -14,7 +14,6 @@ export async function DELETE(request: Request){
         const uId = searchParams.get('uId')
 
         let blog = await blogModel.findOne({_id:bId, postedBy: uId})
-        console.log(blog)
         if(!blog){
             return NextResponse.json({
                 success: false,

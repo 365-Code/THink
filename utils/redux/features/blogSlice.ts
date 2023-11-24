@@ -11,8 +11,6 @@ export const blogSlice = createSlice({
     reducers: {
         setBlogs: (state, action) => {
             state.blogs = action.payload
-            // console.log(action.payload)
-            // return action.payload
         },
         addBlog: (state, action) => {
             const blog = {

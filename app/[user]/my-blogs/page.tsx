@@ -1,9 +1,13 @@
 import Blogs from '@/components/Blogs'
+import { blogCards } from '@/lib'
 import React from 'react'
 
 const Page = () => {
+
+
+
   return (
-    <Blogs />
+    <Blogs blogs={blogCards}/>
   )
 }
 

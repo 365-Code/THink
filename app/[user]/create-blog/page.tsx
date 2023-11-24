@@ -45,7 +45,6 @@ const Page = () => {
 
   // const addBlogHandler = ()=>{
   //   const blog = {...blogData, categories: ctg}
-  //   // console.log(blog)
   //   dispatch(addBlog(blog))
   //   setBlogData({
   //     thumbnail: "https://img.freepik.com/free-photo/view-robot-human-businessperson_23-2150911961.jpg",

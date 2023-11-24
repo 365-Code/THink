@@ -29,7 +29,7 @@ const Header = () => {
       toast.success("Logged Out Successfully")
       
     } catch (error) {
-      console.log(error)
+      // console.log(error)
       toast.error("Error occurred")
     }
   }
