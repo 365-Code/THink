@@ -15,7 +15,9 @@ const Header = () => {
 
   const pathname = usePathname();
 
-  const [authUser, setAuthUser] = useState(null);
+  const [authUser, setAuthUser] = useState({
+    _id: null
+  });
   const dispatch = useDispatch();
 
   const fetchUser = async (email: string)=>{
@@ -29,6 +31,7 @@ const Header = () => {
       const res = await response.json()
       if(res.success){
         dispatch(authSignIn(res.user))
+        setAuthUser(res.user)
       }
   }
 
@@ -36,10 +39,10 @@ const Header = () => {
 
       onAuthStateChanged(auth, (user:any)=>{
         if(user){
-          setAuthUser(user)
+          // setAuthUser(user)
           fetchUser(user.email)
         } else {
-          setAuthUser(null); 
+          setAuthUser({_id: null}); 
           dispatch(authSignOut())
         }
       })
@@ -50,6 +53,7 @@ const Header = () => {
     try {
       await signOut(auth)
       dispatch(authSignOut())
+      setAuthUser({_id: null})
       toast.success("Logged Out Successfully")
       
     } catch (error) {
@@ -61,7 +65,7 @@ const Header = () => {
   <>
     {
       ((pathname !== '/auth/login') && (pathname !== '/auth/register') ) &&
-      <header className="my-container-2 w-screen flex items-center justify-between gap-4">
+      <header className="z-[2] my-container-2 w-screen flex items-center justify-between gap-4">
       <Link href={"/"} className="logo flex items-center gap-2 font-semibold">
         <div className="h-[48px] w-[48px] cursor-pointer overflow-hidden rounded-full">
           <Image
@@ -78,13 +82,13 @@ const Header = () => {
       <nav className="hidden flex-wrap items-center gap-8 md:flex">
         <Link href="/" className={`${pathname == '/' && "glow-text"} hover-glow-text`}>Home</Link>
         <Link href="/blogs" className={`${pathname == '/blogs' && "glow-text"} hover-glow-text`}>Blogs</Link>
-        <Link href="/:user/my-blogs" className={`${pathname.endsWith('/my-blogs') && "glow-text"} hover-glow-text`}>My Blogs</Link>
+        <Link href={`/${authUser._id}/my-blogs`} className={`${pathname.endsWith('/my-blogs') && "glow-text"} hover-glow-text`}>My Blogs</Link>
         {/* <Link href="/:user/create-blog" className={`${pathname.endsWith('/my-blogs') && "glow-text"} hover-glow-text`}>create blog</Link> */}
         <Link href="/about" className={`${pathname == '/about' && "glow-text"} hover-glow-text`}>About</Link>
       </nav>
 
       {
-        !authUser 
+        !(authUser._id)
         ?
         <div className='rounded-full space-x-2 flex'>
           <Link href={'/auth/login'} className='hover:text-[#121212] border hover:bg-white text-white transition-all px-4 py-1 rounded-full'>Log In</Link>

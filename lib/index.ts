@@ -42,9 +42,11 @@ export const clrs = [
 export const clrsLength = clrs.length
 
 
-export const logo = "https://img.freepik.com/free-photo/young-woman-abstract-autumn-beauty-nature-generated-by-ai_188544-10645.jpg?ga=GA1.1.1835354613.1698558582&semt=ais_ai_generated"
+// export const logo = "https://img.freepik.com/free-photo/young-woman-abstract-autumn-beauty-nature-generated-by-ai_188544-10645.jpg?ga=GA1.1.1835354613.1698558582&semt=ais_ai_generated"
+export const logo = "https://img.freepik.com/free-photo/human-brain-detailed-structure_23-2150929952.jpg?t=st=1700908164~exp=1700911764~hmac=b1fc57c1ff40fef0b222d920cd803833bcfcf63e561a2c5834f0db7827f31c3c&w=740"
 export const footerBg = "https://img.freepik.com/free-vector/realistic-polygonal-background_52683-59998.jpg?size=626&ext=jpg&ga=GA1.1.1835354613.1698558582&semt=ais"
-export const avatar = "https://img.freepik.com/free-photo/view-3d-man-holding-soda-can_23-2150709928.jpg"
+// export const avatar = "https://img.freepik.com/free-photo/view-3d-man-holding-soda-can_23-2150709928.jpg"
+export const avatar = "https://img.freepik.com/premium-photo/blue-circle-with-man-s-head-blue-background_745528-3003.jpg?ga=GA1.1.1835354613.1698558582&semt=ais_ai_generated"
 export const blogThumbnail = "https://img.freepik.com/free-photo/row-rings-with-word-love-them_1340-38627.jpg"
 export const blogCards = [
     {

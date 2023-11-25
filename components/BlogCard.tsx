@@ -12,8 +12,12 @@ export default function BlogCard(blog:{id:string, thumbnail:string, title:string
                 <Image width={400} height={400} src={blog.thumbnail} alt="" className="h-full w-full object-center object-cover hover:scale-105 transition-all" />
             </div>
             <div className="space-y-2">
-                <h3 className="text-lg font-semibold">{blog.title}</h3>
-                <p className="text-sm">
+                <h3 className="text-lg font-semibold">
+                    {
+                    splitWords(blog.title, 5)
+                    }
+                </h3>
+                <p className="text-sm whitespace-pre-line">
                     {
                         splitWords(blog.description, 30)
                     }
