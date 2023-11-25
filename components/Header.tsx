@@ -1,12 +1,14 @@
 "use client"
 import { avatar, logo } from '@/lib'
 import { auth } from '@/utils/firebase'
+import { authSignIn, authSignOut } from '@/utils/redux/features/authSlice'
 import { onAuthStateChanged, signOut } from 'firebase/auth'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React from 'react'
 import {useEffect, useState} from 'react'
+import { useDispatch } from 'react-redux'
 import {toast} from 'react-toastify'
 
 const Header = () => {
@@ -14,11 +16,32 @@ const Header = () => {
   const pathname = usePathname();
 
   const [authUser, setAuthUser] = useState(null);
+  const dispatch = useDispatch();
+
+  const fetchUser = async (email: string)=>{
+      const response = await fetch('/api/users/fetchUser', {
+          method: 'POST',
+          headers: {
+              'Content-Type': "application/json"
+          },
+          body:  JSON.stringify({email})
+      })
+      const res = await response.json()
+      if(res.success){
+        dispatch(authSignIn(res.user))
+      }
+  }
 
   useEffect(() => {
 
       onAuthStateChanged(auth, (user:any)=>{
-        user ? setAuthUser(user) : setAuthUser(null); 
+        if(user){
+          setAuthUser(user)
+          fetchUser(user.email)
+        } else {
+          setAuthUser(null); 
+          dispatch(authSignOut())
+        }
       })
   
   }, [])
@@ -26,14 +49,14 @@ const Header = () => {
   const logOut = async ()=>{
     try {
       await signOut(auth)
+      dispatch(authSignOut())
       toast.success("Logged Out Successfully")
       
     } catch (error) {
-      // console.log(error)
       toast.error("Error occurred")
     }
   }
-  
+
   return (
   <>
     {
@@ -70,18 +93,39 @@ const Header = () => {
         :
         <div className="flex items-center gap-4">
 
-          <div id="profile" className="h-[36px] w-[36px] cursor-pointer overflow-hidden rounded-full">
+          {/* <div id="profile" className="h-[36px] w-[36px] cursor-pointer overflow-hidden rounded-full">
             <Image width={64} height={64} src={avatar} alt="" className="h-full w-full object-cover object-center" />
-          </div>
+          </div> */}
+
+          <div className="relative cursor-pointer group/dropdown transition-all rounded-lg bg-[#222222] w-fit p-1">
+              <div id="profile" className="h-[36px] w-[36px] cursor-pointer overflow-hidden rounded-full">
+                <Image width={64} height={64} src={avatar} alt="" className="h-full w-full object-cover object-center" />
+              </div>
+              <ul className="overflow-hidden h-0 rounded-lg group-hover/dropdown:h-auto absolute top-[102%] right-0 bg-[#222222] text-white transition-all">
+                  <li>
+                      <Link href={'/user/profile'} className="px-8 py-2 hover:bg-[#181818] transition-all flex items-center gap-2">
+                      <i className="fi fi-sr-user-gear" />
+                        <span>Profile</span>
+                      </Link>
+                  </li>
+                  <hr />
+                  <li>
+                    <button onClick={logOut} className='px-8 py-2 hover:bg-[#181818] transition-all flex items-center gap-2'>
+                    <i className="fi fi-sr-exit" />
+                    <span>Logout</span>
+                    </button>
+                  </li>
+              </ul>
+          </div> 
 
           <div className='cursor-pointer'>
             <i className="fi fi-sr-bell text-slate-200 hover:text-slate-300" />
           </div>
-          <button onClick={logOut} className='cursor-pointer p-2 border rounded-full hover:bg-white group/logout transition-all'>
+          {/* <button onClick={logOut} className='cursor-pointer p-2 border rounded-full hover:bg-white group/logout transition-all'>
             <i className="fi fi-rr-sign-out-alt group-hover/logout:text-[#121212] transition-all" />
-          </button>
+          </button> */}
 
-          <Link href={"/#contact"} className="hidden sm:block rounded-full bg-white hover:bg-[#121212] hover:text-white transition-all px-2 py-1 text-slate-600">Contact Us</Link>
+          {/* <Link href={"/#contact"} className="hidden sm:block rounded-full bg-white hover:bg-[#121212] hover:text-white transition-all px-2 py-1 text-slate-600">Contact Us</Link> */}
 
         </div>
       }

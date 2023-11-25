@@ -66,21 +66,21 @@ const Page = () => {
                 <span>OR</span>
                 <hr className='w-full border-[#f1f1f1]'/>
             </div>
-            
+
             <form onSubmit={signUp}>
             <div className='space-y-4'>
-                <div className='border focus-within:border-blue-500 flex items-center gap-2 px-2 rounded-lg transition-all'>
-                    <i className="fi fi-sr-user" />
+                <div className='overflow-hidden border focus-within:border-blue-500 flex items-center gap-1 px-2 rounded-lg transition-all'>
+                    <i className="fi fi-sr-user px-2" />
                     <input onChange={handleChange} name='username' value={credentials.username} type="text" autoComplete='off' placeholder='Enter Username' className='autofill:!bg-transparent p-2 w-full bg-transparent' />
                 </div>
 
-                <div className='border focus-within:border-blue-500 flex items-center gap-2 px-2 rounded-lg transition-all'>
-                    <i className="fi fi-sr-at" />
+                <div className='overflow-hidden border focus-within:border-blue-500 flex items-center gap-1 px-2 rounded-lg transition-all'>
+                    <i className="fi fi-sr-at px-2" />
                     <input onChange={handleChange} name='email' value={credentials.email} type="email" autoComplete='off' placeholder='Enter Email' className='p-2 w-full bg-transparent' />
                 </div>
 
-                <div className='border focus-within:border-blue-500 flex items-center gap-2 px-2 rounded-lg transition-all'>
-                    <i className="fi fi-rr-lock" />
+                <div className='overflow-hidden border focus-within:border-blue-500 flex items-center gap-1 px-2 rounded-lg transition-all'>
+                    <i className="fi fi-rr-lock px-2" />
                     <input onChange={handleChange} name='password' value={credentials.password} type="password" placeholder='Enter Password' className='p-2 w-full bg-transparent' />
                 </div>
 

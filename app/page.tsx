@@ -11,10 +11,23 @@ import { useDispatch } from 'react-redux'
 export default function Home() {
 
   const dispatch = useDispatch();
+  const [allBlogs, setAllBlogs] = useState(null)
 
+  
 
   useEffect(()=>{
-    dispatch(setBlogs(blogCards))
+
+    const fetchAllBlogs = async ()=>{
+      const response = await fetch('/api/blogs/fetchAllBlogs');
+      const res = await response.json();
+      if(res.success){
+        setAllBlogs(res.blogs)
+        dispatch(setBlogs(res.blogs))
+      }
+    }
+
+    fetchAllBlogs()
+
   }, [])
 
 
@@ -22,7 +35,8 @@ export default function Home() {
     <main>
       <Discover/>
       <Articles/>
-      <Blogs blogs={blogCards}/>
+      {/* <Blogs blogs={blogCards}/> */}
+      <Blogs blogs={allBlogs}/>
       <Contact/>
     </main>
   )

@@ -30,10 +30,9 @@ const Page = () => {
 
         try {
             const response = await signInWithEmailAndPassword(auth,credentials.email, credentials.password)
-            
             toast.success("Login Successful");
             nav.push('/')
-            
+
         } catch (error) {
             toast.error("Invalid credentials. Please try again.")
         }
@@ -68,12 +67,12 @@ const Page = () => {
             <form onSubmit={signIn}>
             <div className='space-y-4'>
 
-                <div className='border focus-within:border-blue-500 flex items-center gap-2 px-2 rounded-lg transition-all'>
-                    <i className="fi fi-sr-at" />
+                <div className='overflow-hidden border focus-within:border-blue-500 flex items-center gap-1 rounded-lg transition-all'>
+                    <i className="fi fi-sr-at px-2" />
                     <input onChange={handleChange} name='email' value={credentials.email} type="email" autoComplete='off' placeholder='Enter Email' className='autofill:!bg-transparent p-2 w-full bg-transparent' />
                 </div>
-                <div className='border focus-within:border-blue-500 flex items-center gap-2 px-2 rounded-lg transition-all'>
-                    <i className="fi fi-rr-lock" />
+                <div className='overflow-hidden border focus-within:border-blue-500 flex items-center gap-1 rounded-lg transition-all'>
+                    <i className="fi fi-rr-lock px-2" />
                     <input onChange={handleChange} name='password' value={credentials.password} type="password" placeholder='Enter Password' className='p-2 w-full bg-transparent' />
                 </div>
                 <div className='flex sm:flex-row flex-col items-center justify-between text-sm p-2'>

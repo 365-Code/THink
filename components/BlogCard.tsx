@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
 
-export default function BlogCard(blog:{id:string, thumbnail:string, title:string, description:string}){
+export default function BlogCard(blog:{id:string, thumbnail:string, title:string, description:string, datePost: string}){
 
     return (
         <div className="max-w-[350px] w-full sm:max-w-[320px] space-y-2">
@@ -19,10 +19,9 @@ export default function BlogCard(blog:{id:string, thumbnail:string, title:string
                     }
                 </p>
                 <hr />
-                <div className="flex gap-4 items-center">
-                    <hr className="w-4 bg-white h-[2px]" />
-                    <div className="flex gap-2 w-2/5"><span>Date-Post</span></div>
-                    <div className="flex gap-2 w-2/5"><span>Views</span></div>
+                <div className="flex gap-4 items-center justify-between">
+                    <div className="flex gap-2 w-2/5"><i className="fi fi-sr-calendar" /><span>{blog.datePost}</span></div>
+                    <div className="flex gap-2 w-2/5"><i className="fi fi-sr-eye"/><span>Views</span></div>
                 </div>
             </div>
             <div className='flex text-center items-center'>

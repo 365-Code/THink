@@ -28,7 +28,7 @@ const Blog = (blog:{thumbnail:string, category:Array<string>, title:string, desc
             <div className="md:basis-3/5 space-y-4">
                 <div className="space-y-2">
                     <div className="w-full h-[300px] rounded-lg overflow-hidden">
-                        <Image width={1000} height={200} src={blogThumbnail} alt="" className="h-full w-full object-cover object-center" />
+                        <Image width={1000} height={200} src={blog.thumbnail} alt="" className="h-full w-full object-cover object-center" />
                     </div>
                     <ul className="flex text-sm gap-2 flex-wrap">
                         {
@@ -40,9 +40,10 @@ const Blog = (blog:{thumbnail:string, category:Array<string>, title:string, desc
                     </ul>
                 </div>
 
-                <h2>Title</h2>
+                <h2 className='text-lg'>{blog.title}</h2>
 
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat molestias rerum, ipsum culpa quis voluptatibus nemo incidunt eius fugit quos rem aliquid sunt animi provident odio dolores laboriosam eum ullam distinctio neque. Et rem, perferendis at error consequuntur quia nostrum praesentium repellendus soluta quaerat fugiat cupiditate molestias obcaecati repudiandae alias officia! Quisquam beatae voluptate molestias assumenda repellat, eum iure quia exercitationem consequatur, nobis sequi incidunt maiores consequuntur dolores quas hic ad ipsum quam. Similique ullam quo exercitationem totam eius pariatur vel fugiat laborum, aut consequuntur doloribus ab sapiente? Cum, voluptate. Repellendus blanditiis et saepe ex consectetur, mollitia cum modi consequuntur?</p>
+                <p className='whitespace-pre-wrap'>{blog.description}</p>
+                {/* <pre className='break-words whitespace-pre-wrap'>{blog.description}</pre> */}
 
             </div>
 

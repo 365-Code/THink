@@ -8,16 +8,28 @@ import { Selector, useDispatch, useSelector } from 'react-redux'
 const Page = () => {
 
   const dispatch = useDispatch();
-  // const [allBlogs, setAllBlogs] = useState(null)
+  const [allBlogs, setAllBlogs] = useState(null)
 
-  const allBlogs = useSelector((state:any)=> state.blogReducer.blogs)
   useEffect(()=>{
-    dispatch(setBlogs(blogCards))
+
+    const fetchAllBlogs = async ()=>{
+      const response = await fetch('/api/blogs/fetchAllBlogs');
+      // console.log(response)
+      const res = await response.json();
+      // console.log(res)
+      if(res.success){
+        setAllBlogs(res.blogs)
+        dispatch(setBlogs(res.blogs))
+      }
+    }
+
+    fetchAllBlogs()
+
   }, [])
   
   return (
-    <Blogs blogs={blogCards}/>
-    // <Blogs blogs={allBlogs}/>
+    // <Blogs blogs={blogCards}/>
+    <Blogs blogs={allBlogs}/>
   )
 }
 

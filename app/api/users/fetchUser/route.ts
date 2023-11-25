@@ -9,9 +9,12 @@ export async function POST(request: Request){
 
         connectDB()
         const user = await request.json();
-        const existingUser = await userModel.findOne({email: user.email})
 
-        if (!existingUser){
+
+        const exUser = await userModel.findOne({email: user.email}).select("username, photo")
+
+
+        if (!exUser){
             return NextResponse.json({
                 success: false,
                 msg: "Invalid credentials"
@@ -20,13 +23,14 @@ export async function POST(request: Request){
 
         return NextResponse.json({
             success: true,
-            user: existingUser
+            user: exUser
         })
 
     } catch (error){
+        console.log(error)
         return NextResponse.json({
             success: false,
-            msg: "Error in register"
+            msg: "Error in login"
         }, {status: 500})
     }
 }
