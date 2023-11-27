@@ -27,8 +27,11 @@ const Blog = (blog:{thumbnail:string, category:Array<string>, title:string, desc
 
             <div className="md:basis-3/5 space-y-4">
                 <div className="space-y-2">
-                    <div className="w-full h-[300px] rounded-lg overflow-hidden">
-                        <Image width={1000} height={200} src={blog.thumbnail} alt="" className="h-full w-full object-cover object-center" />
+                    <div className={`w-full h-[300px] ${!blog.thumbnail && 'animate-pulse'} bg-[#181818] rounded-lg overflow-hidden`}>
+                        {
+                            blog.thumbnail &&
+                            <Image width={1000} height={200} src={blog.thumbnail} alt="" className="h-full w-full object-cover object-center" />
+                        }
                     </div>
                     <ul className="flex text-sm gap-2 flex-wrap">
                         {

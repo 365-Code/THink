@@ -14,12 +14,12 @@ export default function BlogCard(blog:{id:string, thumbnail:string, title:string
             <div className="space-y-2">
                 <h3 className="text-lg font-semibold">
                     {
-                    splitWords(blog.title, 5)
+                        blog.title.slice(0,25) + "..."
                     }
                 </h3>
                 <p className="text-sm whitespace-pre-line">
                     {
-                        splitWords(blog.description, 30)
+                        splitWords(blog.description, 32)
                     }
                 </p>
                 <hr />

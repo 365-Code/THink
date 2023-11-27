@@ -10,7 +10,7 @@ const Contact = () => {
 
     <div className="sm:w-1/2 w-full px-4">
       <div className="flex flex-col md:flex-row items-center gap-2">
-        <input type="text" className="w-full rounded-full px-4 py-2" placeholder="Email" />
+        <input type="text" className="w-full rounded-full px-4 py-2 focus-within:border-blue-500 border border-[#181818] transition-all" placeholder="Email" />
         <button className="selected-category text-sm">Subscribe</button>
       </div>
     </div>

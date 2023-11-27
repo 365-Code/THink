@@ -12,7 +12,7 @@ const Footer = () => {
         {
             ((pathname !== '/auth/login') && (pathname !== '/auth/register') ) &&
 
-        <footer className="my-container-1 relative flex items-center justify-between flex-col-reverse gap-4">
+        <footer className="my-container-1 relative flex items-center justify-between justify-self-end flex-col-reverse gap-4">
             <div className="flex items-center gap-4 ">
                 <a href="/" className='hover:text-rose-500'>Home</a>
                 <hr className='h-6 border-none w-[2px] bg-red-500'/>

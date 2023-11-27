@@ -6,7 +6,8 @@ import React from 'react'
 
 const Article = (article: { profile: string, user: string, thumbnail: string, title: string, description: string }) => {
   return (
-    <div className="transition-all min-w-full max-w-full h-full inner-container relative overflow-hidden rounded-lg">
+    <div className="transition-all w-full h-full inner-container relative overflow-hidden rounded-lg">
+
       <div className="absolute left-0 top-0 h-full w-full opacity-60">
         <Image
           height={200}
@@ -31,6 +32,7 @@ const Article = (article: { profile: string, user: string, thumbnail: string, ti
           <Link href={`/blogs/${article.title}`} className="text-rose-500 underline">read more</Link>
         </p>
       </div>
+
     </div>
   )
 }
