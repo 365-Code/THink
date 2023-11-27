@@ -10,6 +10,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body{
@@ -21,6 +22,7 @@ body{
   justify-content: space-between;
   width: 100vw;
   overflow-x: hidden;
+  scroll-behavior: smooth;
   /* font-family: 'Roboto', sans-serif; */
   /* background-color: #0A0A0A; */
   /* background-color: #15292B; */

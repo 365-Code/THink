@@ -7,12 +7,13 @@ import Comments from '@/components/Comments'
 
 const Page = () => {
 
-    const {blogId:bId} = useParams()
+  const {blogId:bId} = useParams()
     const [blogData, setBlogData] = useState({
       thumbnail: "",
       title: "",
       description: "",
-      categories: []
+      categories: [],
+      comments: []
     })
 
     useEffect(() => {
@@ -23,11 +24,8 @@ const Page = () => {
           setBlogData(res.blog)
         }
       }
-
       fetchBlog()
-  
-    }, [])
-    
+    }, [bId])
 
   return (
   <main className="my-container-1 min-h-screen gap-4 flex md:flex-row flex-col">
@@ -41,7 +39,7 @@ const Page = () => {
           description={blogData.description}
           category={blogData.categories}
           />
-          <Comments/>
+          <Comments comments={blogData.comments}/>
         </>
     }
 

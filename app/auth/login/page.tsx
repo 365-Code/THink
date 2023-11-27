@@ -31,7 +31,8 @@ const Page = () => {
         try {
             const response = await signInWithEmailAndPassword(auth,credentials.email, credentials.password)
             toast.success("Login Successful");
-            nav.push('/')
+            nav.back()
+            // nav.push('/')
 
         } catch (error) {
             toast.error("Invalid credentials. Please try again.")

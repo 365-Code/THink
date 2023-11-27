@@ -11,7 +11,7 @@ export async function POST(request: Request){
         const user = await request.json();
 
 
-        const exUser = await userModel.findOne({email: user.email}).select("username, photo")
+        const exUser = await userModel.findOne({email: user.email})
 
 
         if (!exUser){

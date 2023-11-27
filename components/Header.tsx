@@ -30,6 +30,7 @@ const Header = () => {
       })
       const res = await response.json()
       if(res.success){
+        console.log(res)
         dispatch(authSignIn(res.user))
         setAuthUser(res.user)
       }

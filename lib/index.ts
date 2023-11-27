@@ -33,6 +33,16 @@ export const clrs = [
         text: "text-green-500",
     },
     {
+        border: "border-yellow-500",
+        bg: "hover:bg-yellow-500",
+        text: "text-yellow-500",
+    },
+    {
+        border: "border-red-500",
+        bg: "hover:bg-red-500",
+        text: "text-red-500",
+    },
+    {
         border: "border-rose-500",
         bg: "hover:bg-rose-500",
         text: "text-rose-500",

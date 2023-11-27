@@ -33,6 +33,9 @@ const blogSchema = new mongoose.Schema({
                 month: "short",
                 year: "numeric",
                 })
+    },
+    comments:{
+        type: Array
     }
 }, {timestamps: true})
 
