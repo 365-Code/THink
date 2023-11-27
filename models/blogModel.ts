@@ -1,10 +1,10 @@
 import mongoose from "mongoose"
 
-
 const blogSchema = new mongoose.Schema({
     postedBy:{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'User',
+        required: true
     },
     title: {
         type: String,

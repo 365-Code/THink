@@ -13,8 +13,6 @@ export default function Home() {
   const dispatch = useDispatch();
   const [allBlogs, setAllBlogs] = useState(null)
 
-  
-
   useEffect(()=>{
 
     const fetchAllBlogs = async ()=>{
