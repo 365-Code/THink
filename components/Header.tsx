@@ -21,6 +21,7 @@ const Header = () => {
   const dispatch = useDispatch();
 
   const fetchUser = async (email: string)=>{
+    try{
       const response = await fetch('/api/users/fetchUser', {
           method: 'POST',
           headers: {
@@ -30,18 +31,21 @@ const Header = () => {
       })
       const res = await response.json()
       if(res.success){
-        console.log(res)
         dispatch(authSignIn(res.user))
         setAuthUser(res.user)
       }
+    } catch(error:any){
+      toast.error("Invalid Credentials")
+    }
   }
 
+  
   useEffect(() => {
-
-      onAuthStateChanged(auth, (user:any)=>{
-        if(user){
-          // setAuthUser(user)
-          fetchUser(user.email)
+    
+    onAuthStateChanged(auth, (user:any)=>{
+      if(user){
+        // setAuthUser(user)
+        fetchUser(user.email)
         } else {
           setAuthUser({_id: null}); 
           dispatch(authSignOut())
@@ -96,11 +100,6 @@ const Header = () => {
         </div>
         :
         <div className="flex items-center gap-4">
-
-          {/* <div id="profile" className="h-[36px] w-[36px] cursor-pointer overflow-hidden rounded-full">
-            <Image width={64} height={64} src={avatar} alt="" className="h-full w-full object-cover object-center" />
-          </div> */}
-
           <div className="relative cursor-pointer group/dropdown transition-all rounded-lg bg-[#222222] w-fit p-1">
               <div id="profile" className="h-[36px] w-[36px] cursor-pointer overflow-hidden rounded-full">
                 <Image width={64} height={64} src={avatar} alt="" className="h-full w-full object-cover object-center" />

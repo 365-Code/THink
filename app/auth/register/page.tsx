@@ -24,14 +24,33 @@ const Page = () => {
         })
     }
 
+    const registerUser = async ()=>{
+        try{
+            const response = await fetch('/api/users/createUser', {
+                method: 'POST',
+                headers:{
+                    'Content-Type': "application/json"
+                },
+                body: JSON.stringify(credentials)
+            })
+            const res = await response.json()
+            if(res.success){
+                toast.success(res.msg)
+            } else{
+                toast.error(res.msg)
+            }
+        }catch(error: any){
+            toast.error("Failed to Register")
+        }
+    }
+
     const nav = useRouter();
 
     const signUp = async (e:any)=>{
         e.preventDefault();
         try{
-            const response = await createUserWithEmailAndPassword(auth, credentials.email, credentials.password)
-            toast.success("Registered Successfully")
-
+            await createUserWithEmailAndPassword(auth, credentials.email, credentials.password)
+            await registerUser()
             nav.push("/auth/login")
         }catch(error:any){
             // console.log(error)
@@ -71,7 +90,7 @@ const Page = () => {
             <div className='space-y-4'>
                 <div className='overflow-hidden border focus-within:border-blue-500 flex items-center gap-1 px-2 rounded-lg transition-all'>
                     <i className="fi fi-sr-user px-2" />
-                    <input onChange={handleChange} name='username' value={credentials.username} type="text" autoComplete='off' placeholder='Enter Username' className='autofill:!bg-transparent p-2 w-full bg-transparent' />
+                    <input onChange={handleChange} name='username' maxLength={20} value={credentials.username} type="text" autoComplete='off' placeholder='Enter Username' className='autofill:!bg-transparent p-2 w-full bg-transparent' />
                 </div>
 
                 <div className='overflow-hidden border focus-within:border-blue-500 flex items-center gap-1 px-2 rounded-lg transition-all'>
