@@ -64,7 +64,6 @@ const AddComment = (cmt:{comments: any, setComments:any}) => {
   }
 
   const toggleEmoji = ()=>{
-    console.log(emoji); 
     setEmoji(!emoji)
   }
 

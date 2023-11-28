@@ -2,7 +2,8 @@
 import React, { useEffect, useState } from 'react'
 import Article from './Article'
 
-const Articles = () => {
+const Articles = (props: {articles: Array<any>}) => {
+
 
   function slideShow(d:number){
     setCurrentSlide((prev)=>{
@@ -13,7 +14,6 @@ const Articles = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(()=>{
-
     setTimeout(()=>{
       slideShow(1)
     }, 3000)
@@ -45,6 +45,8 @@ const Articles = () => {
     }
   ]
 
+  art.slice(0,3)
+
   return (
     <section id="articles" className="my-container-1 text-center">
         <div className="flex items-center gap-2 my-2">
@@ -56,20 +58,15 @@ const Articles = () => {
 
         <div className='relative w-full h-full flex overflow-hidden'>
           {
-            art.map((a, i)=>(
+            props.articles?.map((a, i)=>(
               <div key={i} id='article' className={`${i == currentSlide ? "z-[1] opacity-100 left-0 absolute" : `relative translate-x-full opacity-0`} top-1/2 -translate-y-1/2 overflow-hidden transition-all w-full ease-in-out`}>
-                  <Article profile={a.profile} 
-                  user={a.user} 
-                  thumbnail={a.thumbnail}
-                  title={a.title} 
-                  description={a.description} />
+                  <Article article={a} />
               </div>
             ))
           }
-          
 
-          <i onClick={()=>{slideShow(-1)}} className="fi fi-rr-caret-left hover:bg-black transition-all absolute text-xl cursor-pointer left-0 top-1/2 -translate-y-1/2 bg-black/50 px-2 py-4" />
-          <i onClick={()=>{slideShow(1)}} className="fi fi-rr-caret-right hover:bg-black transition-all absolute text-xl cursor-pointer right-0 top-1/2 -translate-y-1/2 bg-black/50 px-2 py-4" />
+          <i onClick={()=>{slideShow(-1)}} className="fi fi-rr-caret-left hover:bg-black transition-all absolute text-xl cursor-pointer left-0 top-1/2 -translate-y-1/2 bg-black/50 px-2 py-4 z-[1]" />
+          <i onClick={()=>{slideShow(1)}} className="fi fi-rr-caret-right hover:bg-black transition-all absolute text-xl cursor-pointer right-0 top-1/2 -translate-y-1/2 bg-black/50 px-2 py-4 z-[1]" />
 
         </div>
 
@@ -80,7 +77,6 @@ const Articles = () => {
             art.map((a, i)=>(
               <div key={i} id='article' 
               className={`${i == currentSlide ? "bg-slate-500" : `bg-slate-300`} h-3 w-3 rounded-full transition-all ease-in-out`}>
-      
               </div>
             ))
           }

@@ -3,8 +3,7 @@ import mongoose from "mongoose"
 const blogSchema = new mongoose.Schema({
     postedBy:{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
+        ref: 'User'
     },
     title: {
         type: String,
@@ -41,5 +40,4 @@ const blogSchema = new mongoose.Schema({
 
 
 const blogModel = mongoose.models.Blog || mongoose.model("Blog", blogSchema)
-
 export default blogModel

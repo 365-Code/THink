@@ -11,7 +11,7 @@ import { useDispatch } from 'react-redux'
 export default function Home() {
 
   const dispatch = useDispatch();
-  const [allBlogs, setAllBlogs] = useState(null)
+  const [allBlogs, setAllBlogs] = useState(Array<any>)
 
   useEffect(()=>{
 
@@ -23,16 +23,14 @@ export default function Home() {
         dispatch(setBlogs(res.blogs))
       }
     }
-
     fetchAllBlogs()
-
   }, [])
 
 
   return (
     <main>
       <Discover/>
-      <Articles/>
+      <Articles articles={allBlogs.slice(0,3)}/>
       {/* <Blogs blogs={blogCards}/> */}
       <Blogs blogs={allBlogs}/>
       <Contact/>

@@ -9,10 +9,7 @@ export async function POST(request: Request){
 
         connectDB()
         const user = await request.json();
-
-
         const exUser = await userModel.findOne({email: user.email})
-
 
         if (!exUser){
             return NextResponse.json({
@@ -27,10 +24,10 @@ export async function POST(request: Request){
         })
 
     } catch (error){
-        console.log(error)
+        // console.log(error)
         return NextResponse.json({
             success: false,
-            msg: "Error in login"
+            msg: error
         }, {status: 500})
     }
 }

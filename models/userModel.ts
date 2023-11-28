@@ -11,11 +11,10 @@ const userSchema = new mongoose.Schema({
     },
     email:{
         type: String,
-        required: true,
-        unique: true
+        unique: true,
+        required: true
     }
 }, {timestamps: true})
 
-console.log(mongoose.models.User)
 const userModel = mongoose.models.User || mongoose.model('User', userSchema)
 export default userModel
