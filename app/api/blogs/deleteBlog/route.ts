@@ -28,10 +28,11 @@ export async function DELETE(request: Request){
             msg: "Deleted Successfully"
         })
 
-    } catch (error){
+    } catch (error: any){
+        const { message: msg } = error;
         return NextResponse.json({
             success: false,
-            msg: "Error in delete Blog"
+            msg
         }, {status: 500})
     }
 }

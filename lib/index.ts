@@ -15,6 +15,7 @@ export function splitWords(sentence: string, count: number){
     return sentence
 }
 
+export const categories = ["All", "Technical", "UI/UX", "Web", "Programming"]
 
 export const clrs = [
     {

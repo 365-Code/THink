@@ -23,11 +23,12 @@ export async function POST(request: Request){
             user: exUser
         })
 
-    } catch (error){
-        // console.log(error)
+    } catch (error: any){
+        const { message: msg } = error;
+
         return NextResponse.json({
             success: false,
-            msg: error
+            msg
         }, {status: 500})
     }
 }

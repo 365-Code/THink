@@ -26,10 +26,11 @@ export async function PUT(request: Request){
             msg: "Password Reset Successfully"
         })
 
-    }catch(error){
+    }catch(error: any){
+        const { message: msg } = error;
         return NextResponse.json({
             success: false,
-            msg: "Error in Forgot Password"
+            msg
         }, {status: 500})
     }
 }

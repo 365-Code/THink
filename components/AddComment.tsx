@@ -1,18 +1,18 @@
 "use client"
 import { avatar } from '@/lib'
-import EmojiPicker, {Theme} from 'emoji-picker-react'
+import EmojiPicker, { Theme } from 'emoji-picker-react'
 import Image from 'next/image'
 import { useParams } from 'next/navigation'
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 
-const AddComment = (cmt:{comments: any, setComments:any}) => {
+const AddComment = (cmt: { comments: any, setComments: any }) => {
   const authUser = useSelector((state: any) => state.authReducer.auth)
   const [commentData, setCommentData] = useState('')
 
-  const {blogId: bId} = useParams()
+  const { blogId: bId } = useParams()
 
-  const postComment = async ()=>{
+  const postComment = async () => {
     const cmtData = {
       comment: commentData,
       profile: authUser.user.profile || avatar,
@@ -20,8 +20,8 @@ const AddComment = (cmt:{comments: any, setComments:any}) => {
       email: authUser.user.email,
     }
 
-    try{
-      const response = await fetch (`/api/blogs/addComment/?bId=${bId}`, {
+    try {
+      const response = await fetch(`/api/blogs/addComment/?bId=${bId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': "application/json"
@@ -31,8 +31,8 @@ const AddComment = (cmt:{comments: any, setComments:any}) => {
 
       const res = await response.json();
 
-      if(res.success){
-        cmt.setComments((preVal: any)=>{
+      if (res.success) {
+        cmt.setComments((preVal: any) => {
           return [
             cmtData,
             ...preVal
@@ -40,30 +40,23 @@ const AddComment = (cmt:{comments: any, setComments:any}) => {
         })
         setCommentData('')
       }
-    } catch (error){
+    } catch (error) {
       return error
     }
   }
 
-  const handleChange = (e:any)=>{
-    const {name, value} = e.target;
+  const handleChange = (e: any) => {
+    const { name, value } = e.target;
     setCommentData(value)
   }
 
-  // document.body.onclick = ()=>{
-  //   console.log("working")
-  // }
-
-
-  
-  // const emojiRef = useRef()
   const [emoji, setEmoji] = useState(false)
-  
-  document.body.onclick = ()=>{
+
+  document.body.onclick = () => {
     emoji ? setEmoji(!emoji) : null
   }
 
-  const toggleEmoji = ()=>{
+  const toggleEmoji = () => {
     setEmoji(!emoji)
   }
 
@@ -77,12 +70,12 @@ const AddComment = (cmt:{comments: any, setComments:any}) => {
         <div className="flex items-center justify-between px-2">
           <button className='relative'>
             <div className={`hidden md:block ${emoji ? "w-auto translate-x-0" : "w-0 translate-x-2"} overflow-hidden transition-all right-full bottom-full absolute`}>
-            <EmojiPicker theme={Theme.DARK} onEmojiClick={(e:any)=>{setCommentData((preCmt)=> preCmt + e.emoji)}}/>
-        
+              <EmojiPicker theme={Theme.DARK} onEmojiClick={(e: any) => { setCommentData((preCmt) => preCmt + e.emoji) }} />
+
             </div>
             <i onClick={toggleEmoji} className="fi fi-sr-smile-beam text-lg text-yellow-500 relative z-10 " />
           </button>
-          
+
           <button onClick={postComment} className="text-white px-2 py-1 flex gap-2 items-center bg-rose-500 hover:bg-rose-600 rounded-lg">
             <span>Post</span>
             <i className="fi fi-sr-message-arrow-up-right" />

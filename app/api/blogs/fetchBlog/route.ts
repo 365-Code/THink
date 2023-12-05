@@ -2,9 +2,6 @@ import blogModel from "@/models/blogModel";
 import connectDB from "@/utils/db";
 import { NextResponse } from "next/server";
 
-
-
-
 export async function GET(request: Request){
     try{
         connectDB()
@@ -26,10 +23,11 @@ export async function GET(request: Request){
             blog
         })
 
-    } catch (error){
+    } catch (error: any){
+        const { message: msg } = error;
         return NextResponse.json({
             success: false,
-            msg: "Error in fetch Blog"
+            msg
         }, {status: 500})
     }
 }

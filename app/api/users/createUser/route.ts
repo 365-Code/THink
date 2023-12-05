@@ -14,10 +14,11 @@ export async function POST(request: Request){
             msg: "Successfully registered"
         })
 
-    } catch (error){
+    } catch (error: any){
+        const { message: msg } = error;
         return NextResponse.json({
             success: false,
-            msg: "Error in register"
+            msg
         }, {status: 500})
     }
 }

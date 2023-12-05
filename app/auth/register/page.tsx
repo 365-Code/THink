@@ -53,7 +53,6 @@ const Page = () => {
             await registerUser()
             nav.push("/auth/login")
         }catch(error:any){
-            // console.log(error)
             const {code} = error
             toast.error(code)
         }

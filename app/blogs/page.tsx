@@ -1,9 +1,9 @@
 "use client"
 import Blogs from '@/components/Blogs'
-import { blogCards } from '@/lib'
+import SearchBar from '@/components/SearchBar'
 import { setBlogs } from '@/utils/redux/features/blogSlice'
 import React, { useEffect, useState } from 'react'
-import { Selector, useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 const Page = () => {
 
@@ -14,9 +14,7 @@ const Page = () => {
 
     const fetchAllBlogs = async ()=>{
       const response = await fetch('/api/blogs/fetchAllBlogs');
-      // console.log(response)
       const res = await response.json();
-      // console.log(res)
       if(res.success){
         setAllBlogs(res.blogs)
         dispatch(setBlogs(res.blogs))
@@ -29,7 +27,12 @@ const Page = () => {
   
   return (
     // <Blogs blogs={blogCards}/>
-    <Blogs blogs={allBlogs}/>
+    <>
+    <SearchBar setAllBlogs={setAllBlogs} sectionName='blogs-blogs' />
+    <div id='blogs-blogs'>
+      <Blogs blogs={allBlogs}/>
+    </div>
+    </>
   )
 }
 

@@ -1,51 +1,50 @@
-import type { Metadata } from 'next'
-import { Fira_Code, Inter, Raleway } from 'next/font/google'
-import './globals.css'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-import {Provider} from 'react-redux'
+import type { Metadata } from "next";
+import { Fira_Code, Inter, Raleway } from "next/font/google";
+import "./globals.css";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { store } from '@/utils/redux/store'
-import Providers from '@/utils/redux/Providers'
-import ReduxProvider from '@/utils/redux/Providers'
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import ReduxProvider from "@/utils/redux/Providers";
+import UpScroller from "@/components/UpScroller";
 
-const inter = Inter({ subsets: ['latin'] })
-const firaCode = Fira_Code({ subsets: ['latin'] })
-const raleway = Raleway({subsets: ['latin']})
+const inter = Inter({ subsets: ["latin"] });
+const firaCode = Fira_Code({ subsets: ["latin"] });
+const raleway = Raleway({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'THink',
-  description: 'A Blog designed by creator sohail ahmed',
-}
+  title: "THink",
+  description: "A Blog designed by creator sohail ahmed",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
-      <body className={raleway.className} >
+      <body className={raleway.className}>
         <ReduxProvider>
-          <Header/>
-              {children}
-          <Footer/>
-          <ToastContainer 
-          position="top-center"
-          autoClose={2000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="colored"
+          <Header />
+          {children}
+          <Footer />
+          <ToastContainer
+            position="top-center"
+            autoClose={2000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="colored"
           />
-          </ReduxProvider>
+          <UpScroller/>
+        </ReduxProvider>
       </body>
     </html>
-  )
+  );
 }

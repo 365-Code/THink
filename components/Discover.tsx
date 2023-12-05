@@ -1,37 +1,89 @@
-import React from 'react'
+"use State"
+import { categories } from "@/lib";
+import React, { useState } from "react";
 
-const Discover = () => {
+const Discover = (blogs: {setAllBlogs: any}) => {
+
+  const [discover, setDiscover] = useState({
+    search: "",
+    ctg: "All"
+  });
+
+  const handleDiscover = (e: any)=>{
+    const {name, value} = e.target
+    setDiscover((preVal: any)=> {
+      return {
+      ...preVal,
+      [name]: value
+      }
+    })
+    // if(name == "search" && value == ""){
+    //   discoverSearch(null)
+    // }
+  }
+
+  const discoverSearch = async (e: any)=>{
+    e?.preventDefault()
+    try{
+      const response = await fetch(`/api/blogs/search?ctg=${discover.ctg}&search=${discover.search}`)
+      const res = await response.json()
+      if(res.success && res.blogs.length){
+        blogs.setAllBlogs(res.blogs)
+        document.getElementById("main-blogs")?.scrollIntoView()
+      }
+    }catch(error: any){
+      console.log(error);
+    }
+  }
+
+
   return (
-    
-    <section id="discover" className="my-container space-y-4 rounded-md border-[0.5px] shadow-sm shadow-white">
+    <section
+      id="discover"
+      className="my-container space-y-4 rounded-md border-[0.5px] shadow-sm shadow-white"
+    >
+      <div className="inner-container">
+        <h1 className="text-2xl font-semibold sm:text-3xl">
+          Discover Nice Articles Here
+        </h1>
 
-    <div className="inner-container">
-    <h1 className="sm:text-3xl text-2xl font-semibold">Discover Nice Articles Here</h1>
+        <p className="w-4/5 text-sm capitalize sm:text-lg">
+          All the article and contents of the maybe
+          <span className="font-semibold">uploaded today</span> and they can
+          find your <span className="font-semibold">article and content</span>{" "}
+          quickly and without any problem
+        </p>
 
-    <p className="w-4/5 sm:text-lg text-sm capitalize">All the article and contents of the maybe <span className="font-semibold">uploaded today</span> and they can find your <span className="font-semibold">article and content</span> quickly and without any problem</p>
+        <div className="flex flex-col items-center gap-4 sm:flex-row">
+          <form onSubmit={discoverSearch} className="flex transition-all w-full items-center rounded-lg bg-[#222222] px-2 sm:w-1/2">
+            <i id="fi" className="fi fi-sr-search text-[#ffffff]" />
+              <input
+                type="search"
+                autoComplete="false"
+                name="search"
+                value={discover.search}
+                onChange={handleDiscover}
+                id="search-articles"
+                className="relative border-none px-3 py-2 outline-none transition-all w-full"
+                placeholder="Search"
+              />
+              <button type="submit" />
+          </form>
 
-    <div className="flex sm:flex-row flex-col items-center gap-4">
+          <div className="custom-scrollbar w-full flex-1 overflow-x-scroll">
+            <ul className="flex items-center gap-4">
+              {
+                categories.map((ctg, i)=>(
+                  <button key={`ctg-${i}`} name="ctg" value={ctg} onClick={handleDiscover} className={`${discover.ctg == ctg ? "selected-category" : "hover-glow-text" } cursor-pointer transition-all`}>{ctg}</button>
+                ))
+              }
 
-      <div className="flex items-center sm:w-auto w-full rounded-lg bg-[#222222] px-2">
-        <i id='fi' className="fi fi-sr-search text-[#ffffff]" />
-        <input type="text" name="aSearch" id="search-articles" className="relative border-none px-3 py-2 outline-none" placeholder="Search" />
+            </ul>
+          </div>
+        </div>
       </div>
+    </section>
+  );
+};
 
-      <div className="custom-scrollbar flex-1 w-full overflow-x-scroll">
-        <ul className="flex items-center gap-4">
-          <li className="cursor-pointer hover-glow-text">All</li>
-          <li className="selected-category cursor-pointer hover-glow-text ">Technical</li>
-          <li className="cursor-pointer hover-glow-text">Finance</li>
-          <li className="cursor-pointer hover-glow-text">Business</li>
-          <li className="cursor-pointer hover-glow-text">Design</li>
-          <li className="cursor-pointer hover-glow-text">UI/UX</li>
-        </ul>
-      </div>
-    </div>
-
-    </div>
-  </section>
-  )
-}
-
-export default Discover
+export default Discover;

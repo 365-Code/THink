@@ -8,17 +8,17 @@ export async function GET(request: Request){
     try{
         connectDB();
         const blogs = await blogModel.find({}).populate('postedBy');
-        
+
         return NextResponse.json({
             success: true,
             blogs
         })
 
-    } catch (error){
-        console.log(error)
+    } catch (error: any){
+        const {message: msg} = error
         return NextResponse.json({
             success: false,
-            msg: "Error in fetching all blogs"
+            msg
         }, {status: 500})
     }
 }
