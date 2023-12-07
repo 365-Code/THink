@@ -52,7 +52,7 @@ const Header = () => {
         }
       })
   
-  }, [])
+  }, [dispatch])
 
   const logOut = async ()=>{
     try {

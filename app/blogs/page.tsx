@@ -23,7 +23,7 @@ const Page = () => {
 
     fetchAllBlogs()
 
-  }, [])
+  }, [dispatch])
   
   return (
     // <Blogs blogs={blogCards}/>

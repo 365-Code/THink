@@ -18,8 +18,8 @@ const Page = () => {
   const authUser = useSelector((state: any)=> state.authReducer.auth)
 
   useEffect(()=>{
-    !authUser.user && nav.push('/')
-  }, [])
+    if(!authUser.user){nav.push('/')}
+  }, [authUser.user])
 
   // const [sCtg, setSctg] = useState('');
   const nav = useRouter()

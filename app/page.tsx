@@ -14,18 +14,19 @@ export default function Home() {
   const [allBlogs, setAllBlogs] = useState(Array<any>)
   const [articles, setArticles] = useState(Array<any>)
 
-  useEffect(()=>{
-    const fetchAllBlogs = async ()=>{
-      const response = await fetch('/api/blogs/fetchAllBlogs');
-      const res = await response.json();
-      if(res.success){
-        setAllBlogs(res.blogs)
-        if(!articles.length){
-          setArticles(res.blogs)
-        }
-        dispatch(setBlogs(res.blogs))
+  const fetchAllBlogs = async ()=>{
+    const response = await fetch('/api/blogs/fetchAllBlogs');
+    const res = await response.json();
+    if(res.success){
+      setAllBlogs(res.blogs)
+      if(!articles.length){
+        setArticles(res.blogs)
       }
+      dispatch(setBlogs(res.blogs))
     }
+  }
+
+  useEffect(()=>{
     fetchAllBlogs()
   }, [])
 

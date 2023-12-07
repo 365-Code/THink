@@ -14,10 +14,11 @@ const Articles = (props: {articles: Array<any>}) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(()=>{
-    setTimeout(()=>{
+    const timeOut = setTimeout(()=>{
       slideShow(1)
     }, 3000)
 
+    return clearTimeout(timeOut)
 
   }, [currentSlide] )
 

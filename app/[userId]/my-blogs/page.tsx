@@ -13,16 +13,17 @@ const Page = () => {
   const { userId: uId } = useParams();
   const authUser = useSelector((state: any) => state.authReducer.auth);
 
+  const fetchMyBlogs = async () => {
+    const response = await fetch(`/api/blogs/fetchMyBlogs?uId=${uId}`);
+    const res = await response.json();
+    if (res.success) {
+      setMyBlogs(res.blogs);
+    }
+  };
+
   useEffect(() => {
-    const fetchMyBlogs = async () => {
-      const response = await fetch(`/api/blogs/fetchMyBlogs?uId=${uId}`);
-      const res = await response.json();
-      if (res.success) {
-        setMyBlogs(res.blogs);
-      }
-    };
     fetchMyBlogs();
-  }, []);
+  }, [uId]);
 
 
   return (
