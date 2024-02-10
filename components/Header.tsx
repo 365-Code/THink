@@ -1,5 +1,5 @@
 "use client"
-import { avatar, logo } from '@/lib'
+import { avatar } from '@/lib'
 import { auth } from '@/utils/firebase'
 import { authSignIn, authSignOut } from '@/utils/redux/features/authSlice'
 import { onAuthStateChanged, signOut } from 'firebase/auth'
@@ -10,6 +10,7 @@ import React from 'react'
 import {useEffect, useState} from 'react'
 import { useDispatch } from 'react-redux'
 import {toast} from 'react-toastify'
+
 
 const Header = () => {
 
@@ -72,11 +73,11 @@ const Header = () => {
       ((pathname !== '/auth/login') && (pathname !== '/auth/register') ) &&
       <header className="z-[2] my-container-2 w-screen flex items-center justify-between gap-4">
       <Link href={"/"} className="logo flex items-center gap-2 font-semibold">
-        <div className="h-[48px] w-[48px] cursor-pointer overflow-hidden rounded-full">
+        <div className="h-[64px] w-[64px] cursor-pointer overflow-hidden rounded-full">
           <Image
           width={64}
           height={64} 
-          src={logo} 
+          src={'/logo.png'} 
           alt="" 
           className="h-full w-full object-cover object-center" />
         </div>

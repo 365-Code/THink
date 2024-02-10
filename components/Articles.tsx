@@ -1,6 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 import Article from './Article'
+import Carousel from './Carousel'
 
 const Articles = (props: {articles: Array<any>}) => {
 
@@ -57,7 +58,7 @@ const Articles = (props: {articles: Array<any>}) => {
         </div>
 
 
-        <div className='relative w-full h-full flex overflow-hidden'>
+        {/* <div className='relative w-full h-full flex overflow-hidden'>
           {
             props.articles?.map((a, i)=>(
               <div key={i} id='article' className={`${i == currentSlide ? "z-[1] opacity-100 left-0 absolute" : `relative translate-x-full opacity-0`} top-1/2 -translate-y-1/2 overflow-hidden transition-all w-full ease-in-out`}>
@@ -65,11 +66,9 @@ const Articles = (props: {articles: Array<any>}) => {
               </div>
             ))
           }
+        </div> */}
 
-          {/* <i onClick={()=>{slideShow(-1)}} className="fi fi-rr-caret-left hover:bg-black transition-all absolute text-xl cursor-pointer left-0 top-1/2 -translate-y-1/2 bg-black/50 px-2 py-4 z-[1]" />
-          <i onClick={()=>{slideShow(1)}} className="fi fi-rr-caret-right hover:bg-black transition-all absolute text-xl cursor-pointer right-0 top-1/2 -translate-y-1/2 bg-black/50 px-2 py-4 z-[1]" /> */}
-
-        </div>
+        <Carousel images={[art[0].thumbnail,art[0].thumbnail,art[0].thumbnail]}/>
 
 
         <div className='flex justify-center items-center p-2 gap-2'>

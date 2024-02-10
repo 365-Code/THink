@@ -1,8 +1,3 @@
-// Slice is responsible for tracking initial state and all reduceres are collected here, linker of reducers, initial point
-
-// createSlice = createContext in Context
-// 
-
 import {createSlice} from "@reduxjs/toolkit"
 
 const initialState = {
