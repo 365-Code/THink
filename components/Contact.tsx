@@ -2,18 +2,18 @@ import React from 'react'
 
 const Contact = () => {
   return (
-    <section id="contact" className="my-container-1 flex flex-col sm:flex-row  items-center gap-4 justify-between bg-black">
-    <div className="sm:text-left sm:w-1/2 w-full text-center">
+    <section id="contact" className="my-container-1 flex flex-col items-center gap-4 justify-center bg-black">
+    <div className="sm:max-w-[80%] mx-auto text-center">
       <h3 className="sm:text-3xl text-xl font-semibold">Subscribe for New Content</h3>
-      <p className="font-light sm:w-4/5">Wanna ask something? Just type it and get in touch. Lorem, ipsum.</p>
+      <p className="font-light">Wanna ask something? Just type it and get in touch.</p>
     </div>
 
-    <div className="sm:w-1/2 w-full px-4">
-      <div className="flex flex-col md:flex-row items-center gap-2">
-        <input type="text" className="w-full rounded-full px-4 py-2 focus-within:border-blue-500 border border-[#181818] transition-all" placeholder="Email" />
-        <button className="selected-category text-sm">Subscribe</button>
+      <div className="w-[600px] max-w-full flex items-center overflow-hidden h-[50px] focus-within:border-blue-600 border border-black transition-all">
+        <input type="text" className="w-full h-full p-4 transition-all" placeholder="Email" />
+        <button className="bg-blue-500 hover:bg-blue-600 px-4 h-full text-sm">Subscribe</button>
       </div>
-    </div>
+    {/* <div className="w-[600px] max-w-full h-">
+    </div> */}
 
   </section>
   )

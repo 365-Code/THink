@@ -40,7 +40,7 @@ const Discover = (blogs: {setAllBlogs: any}) => {
   return (
     <section
       id="discover"
-      className="my-container space-y-4 rounded-md border-[0.5px] shadow-sm shadow-white"
+      className="my-container space-y-4 rounded-md shadow-sm shadow-white/10"
     >
       <div className="inner-container">
         <h1 className="text-2xl font-semibold sm:text-3xl">

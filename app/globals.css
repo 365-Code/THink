@@ -52,6 +52,10 @@ input, textarea{
   @apply text-[#ffffff] bg-[#222222] outline-none;
 }
 
+input{
+  @apply autofill:shadow-[inset_0_0_0px_1000px_#1f1f1f] text-white;
+}
+
 #input{
   @apply border-none;
 }
@@ -83,7 +87,6 @@ footer::before{
   @apply hover:bg-blue-600 border border-blue-600 rounded-full py-2 px-4;
 }
 
-
 .hover-glow-text:hover{
   text-shadow: 1px 1px white;
 }
@@ -107,11 +110,11 @@ footer::before{
 }
 
 .my-container-1{
-  @apply sm:px-[5rem] p-12;
+  @apply sm:px-[4rem] p-12;
 }
 
 .my-container-2{
-  @apply sm:px-[5rem] py-8 px-8;
+  @apply sm:px-[4rem] py-8 px-8;
 }
 
 .inner-container{
