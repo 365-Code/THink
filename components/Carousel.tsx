@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import React, { useState } from "react";
 
 const Carousel = ({ images }: { images: Array<string> }) => {
@@ -11,6 +12,7 @@ const Carousel = ({ images }: { images: Array<string> }) => {
     } else {
       setCurrentImg(n - 1);
     }
+    console.log(images[currentImg]);
   };
 
   return (
@@ -20,13 +22,21 @@ const Carousel = ({ images }: { images: Array<string> }) => {
       data-carousel="slide"
     >
       {/* <!-- Carousel wrapper --> */}
-      <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
+      <div className="relative h-56 overflow-hidden rounded-lg md:h-96 flex">
         {/* <!-- Item 1 --> */}
         {images.map((img, ind) => (
-          <div key={ind} className="hidden duration-700 ease-in-out" data-carousel-item>
-            <img
+          <div
+            key={ind}
+            className={`${
+              currentImg == ind ? "min-w-fit w-full max-w-full translate-x-0 animate-none" : "translate-x-full w-0 overflow-hidden transition-transform"
+            }  duration-700 ease-in-out`}
+            data-carousel-item
+          >
+            <Image
+              height={1000}
+              width={1000}
               src={img}
-              className="absolute left-1/2 top-1/2 block w-full -translate-x-1/2 -translate-y-1/2"
+              className="h-full w-full object-fill object-center"
               alt="..."
             />
           </div>
@@ -38,24 +48,20 @@ const Carousel = ({ images }: { images: Array<string> }) => {
       </div>
       {/* <!-- Slider indicators --> */}
       <div className="absolute bottom-5 left-1/2 z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse">
-        {
-            images.map((img, ind) => (
-                <button
-                key={ind}
-                  type="button"
-                  className="h-3 w-3 rounded-full"
-                  aria-current={ind == currentImg}
-                  aria-label="Slide 1"
-                //   data-carousel-slide-to="0"
-                onClick={()=>setCurrentImg(ind)}
-                />
-            ))
-        }
+        {images.map((img, ind) => (
+          <button
+            key={ind}
+            type="button"
+            className={`h-3 w-3 rounded-full ${currentImg == ind ? "bg-white" :"bg-white/30"}`}
+            //   data-carousel-slide-to="0"
+            onClick={() => setCurrentImg(ind)}
+          />
+        ))}
       </div>
       {/* <!-- Slider controls --> */}
       <button
         type="button"
-        onClick={()=>setCurrentImg(-1)}
+        onClick={() => handleCarousel(-1)}
         className="group absolute start-0 top-0 z-30 flex h-full cursor-pointer items-center justify-center px-4 focus:outline-none"
         // data-carousel-prev
       >
@@ -80,7 +86,7 @@ const Carousel = ({ images }: { images: Array<string> }) => {
       </button>
       <button
         type="button"
-        onClick={()=>setCurrentImg(1)}
+        onClick={() => handleCarousel(1)}
         className="group absolute end-0 top-0 z-30 flex h-full cursor-pointer items-center justify-center px-4 focus:outline-none"
         data-carousel-next
       >

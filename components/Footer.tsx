@@ -24,11 +24,11 @@ const Footer = () => {
             </div>
 
             <div className="logo flex items-center gap-2 font-semibold text-lg">
-                <div className="h-[48px] w-[48px] overflow-hidden rounded-full">
+                <div className="h-[64px] w-[64px] overflow-hidden rounded-full">
                     <Image
                     width={64}
                     height={64} 
-                    src={logo}
+                    src="/logo.png"
                     alt="" 
                     className="h-full w-full object-cover object-center" />
                 </div>

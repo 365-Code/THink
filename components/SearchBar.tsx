@@ -37,8 +37,7 @@ const SearchBar = (blogs: {setAllBlogs:any, sectionName: string}) => {
     }
   }
   return (
-    <div className='sm:px-[5rem] px-[4rem]'>
-    <form onSubmit={discoverSearch} className="flex transition-all mx-auto w-full sm:w-4/5 items-center rounded-lg bg-[#222222] px-2">
+    <form onSubmit={discoverSearch} className="flex transition-all mx-auto w-full sm:w-4/5 items-center rounded-lg bg-[#222222] p-4">
             <i id="fi" className="fi fi-sr-search text-[#ffffff]" />
               <input
                 type="search"
@@ -47,12 +46,11 @@ const SearchBar = (blogs: {setAllBlogs:any, sectionName: string}) => {
                 value={discover.search}
                 onChange={handleDiscover}
                 id="search-articles"
-                className="relative w-full px-3 py-2 outline-none transition-all"
+                className="relative w-full px-4 h-full outline-none transition-all"
                 placeholder="Search"
               />
               <button type="submit" />
     </form>
-    </div>
   )
 }
 

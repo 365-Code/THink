@@ -1,4 +1,5 @@
 import blogModel from "@/models/blogModel";
+import connectDB from "@/utils/db";
 import mongoose from "mongoose";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -8,7 +9,7 @@ import { NextRequest, NextResponse } from "next/server";
 export async function GET(request: NextRequest){
     try {
 
-
+        connectDB()
         const {searchParams} = new URL(request.url)
 
         const category = searchParams.get('ctg')?.toString()

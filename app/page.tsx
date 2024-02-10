@@ -18,6 +18,7 @@ export default function Home() {
     const response = await fetch('/api/blogs/fetchAllBlogs');
     const res = await response.json();
     if(res.success){
+      console.log(res.blogs);
       setAllBlogs(res.blogs)
       if(!articles.length){
         setArticles(res.blogs)
@@ -29,10 +30,6 @@ export default function Home() {
   useEffect(()=>{
     fetchAllBlogs()
   }, [])
-
-
-  
-
 
   return (
     <main>

@@ -55,8 +55,8 @@ const Discover = (blogs: {setAllBlogs: any}) => {
         </p>
 
         <div className="flex flex-col items-center gap-4 sm:flex-row">
-          <form onSubmit={discoverSearch} className="flex transition-all w-full items-center rounded-lg bg-[#222222] px-2 sm:w-1/2">
-            <i id="fi" className="fi fi-sr-search text-[#ffffff]" />
+          <form onSubmit={discoverSearch} className="flex transition-all w-full items-center overflow-hidden rounded-lg bg-[#222222] sm:w-1/2">
+            <i id="fi" className="p-4 fi fi-sr-search text-[#ffffff]" />
               <input
                 type="search"
                 autoComplete="false"
@@ -64,7 +64,7 @@ const Discover = (blogs: {setAllBlogs: any}) => {
                 value={discover.search}
                 onChange={handleDiscover}
                 id="search-articles"
-                className="relative border-none px-3 py-2 outline-none transition-all w-full"
+                className="relative border-none p-4 outline-none transition-all h-full w-full"
                 placeholder="Search"
               />
               <button type="submit" />
