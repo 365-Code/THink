@@ -28,16 +28,9 @@ const Comments = (props: { comments: any }) => {
               />
             ))
           ) : (
-            <div>
-              {
-                [...Array(4)].map((i, ind)=> (
-                  <div key={ind} className="w-full h-[50px] bg-white/50 rounded-lg"></div>
-                ))
-              }
               <h2 className="text-center text-lg font-semibold">
                 No Comments Found
               </h2>
-            </div>
           )}
         </div>
       }
