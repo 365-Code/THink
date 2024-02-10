@@ -12,7 +12,7 @@ const Footer = () => {
         {
             ((pathname !== '/auth/login') && (pathname !== '/auth/register') ) &&
 
-        <footer className="my-container-1 relative flex items-center justify-between justify-self-end flex-col-reverse gap-4">
+        <footer className="my-container-2 relative flex items-center justify-between justify-self-end flex-col-reverse gap-4">
             <div className="flex items-center gap-4 ">
                 <a href="/" className='hover:text-rose-500'>Home</a>
                 <hr className='h-6 border-none w-[2px] bg-red-500'/>
@@ -20,7 +20,7 @@ const Footer = () => {
                 <hr className='h-6 border-none w-[2px] bg-red-500'/>
                 <a href="/about" className='hover:text-rose-500'>About</a>
                 <hr className='h-6 border-none w-[2px] bg-red-500'/>
-                <a href="/:user/account" className='hover:text-rose-500'>Account</a>
+                <a href="/user/profile" className='hover:text-rose-500'>Account</a>
             </div>
 
             <div className="logo flex items-center gap-2 font-semibold text-lg">

@@ -28,7 +28,9 @@ export default function RootLayout({
       <body className={raleway.className}>
         <ReduxProvider>
           <Header />
+          <main className="flex-1">
           {children}
+          </main>
           <Footer />
           <ToastContainer
             position="top-center"
