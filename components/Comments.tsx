@@ -15,7 +15,7 @@ const Comments = (props: { comments: any }) => {
   }, [props.comments]);
 
   return (
-    <div className="flex max-h-screen flex-1 flex-col gap-4 border-l">
+    <div className="flex max-h-screen flex-1 flex-col gap-4">
       <h3 className="mb-1 text-center font-semibold underline">Comments</h3>
       {
         <div className="custom-scrollbar flex-1 overflow-y-scroll scroll-smooth transition-all">

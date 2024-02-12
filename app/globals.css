@@ -52,12 +52,20 @@ input, textarea{
   @apply text-[#ffffff] bg-[#222222] outline-none;
 }
 
-input{
-  @apply autofill:shadow-[inset_0_0_0px_1000px_#1f1f1f] text-white;
+.input-fill{
+  @apply autofill:shadow-[inset_0_0_0px_1000px_#181818] text-white;
 }
 
 #input{
   @apply border-none;
+}
+
+.display-blogs{
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.display-blogs-sm{
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 footer::before{
@@ -93,6 +101,7 @@ footer::before{
 
 .glow-text{
   text-shadow: 1px 1px white;
+  @apply underline;
 }
 
 .custom-scrollbar::-webkit-scrollbar{
@@ -110,11 +119,11 @@ footer::before{
 }
 
 .my-container-1{
-  @apply sm:px-[4rem] p-12;
+  @apply sm:px-[4rem] sm:p-12 py-12 px-4;
 }
 
 .my-container-2{
-  @apply sm:px-[4rem] py-8 px-8;
+  @apply sm:px-[4rem] py-8 px-4;
 }
 
 .inner-container{

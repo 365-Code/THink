@@ -7,7 +7,7 @@ import { NextResponse } from "next/server";
 export async function POST(request: Request){
     try{
 
-        connectDB()
+        await connectDB()
         const user = await request.json();
         const exUser = await userModel.findOne({email: user.email})
 

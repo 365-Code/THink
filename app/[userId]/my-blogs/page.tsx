@@ -34,7 +34,7 @@ const Page = () => {
           <div className="relative flex w-full justify-center py-4">
             <Link
               href={`/${authUser.user._id}/create-blog`}
-              className="fixed z-[1] mx-auto rounded-lg border-none bg-blue-500 px-4 py-2 hover:bg-blue-600 sm:right-0 sm:mr-[5rem]"
+              className="absolute z-[1] mx-auto rounded-lg border-none bg-blue-500 px-4 py-2 hover:bg-blue-600 sm:right-0 sm:mr-[5rem]"
             >
               Create Post
             </Link>
@@ -50,7 +50,8 @@ const Page = () => {
                 height={100}
                 className="rounded-lg"
                 src={
-                  "https://img.freepik.com/free-vector/no-data-concept-illustration_114360-626.jpg?w=740&t=st=1701196893~exp=1701197493~hmac=a125b6e7aa5744de73b6b9f04fab40710d06348c7c590d45e0a6a1782266b842"
+                  // "https://img.freepik.com/free-vector/no-data-concept-illustration_114360-626.jpg?w=740&t=st=1701196893~exp=1701197493~hmac=a125b6e7aa5744de73b6b9f04fab40710d06348c7c590d45e0a6a1782266b842"
+                  '/noblog.svg'
                 }
                 alt=""
               />

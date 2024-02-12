@@ -107,7 +107,7 @@ const Page = () => {
                 type="email"
                 autoComplete="off"
                 placeholder="Enter Email"
-                className="w-full bg-transparent p-4"
+                className="w-full input-fill bg-transparent p-4"
               />
             </div>
 

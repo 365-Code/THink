@@ -8,7 +8,7 @@ import { NextResponse } from "next/server";
 export async function PUT(request: Request){
     try{
 
-        connectDB()
+        await connectDB()
 
         const user = await request.json();
 

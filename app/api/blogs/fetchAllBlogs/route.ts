@@ -4,9 +4,9 @@ import { NextResponse } from "next/server";
 
 export async function GET(){
     try{
-        connectDB();
-        const blogs = await blogModel.find({}).populate('postedBy');
-
+        await connectDB();
+        const blogs = await blogModel.find({}).populate('postedBy').sort({updatedAt: -1});
+        
         return NextResponse.json({
             success: true,
             blogs

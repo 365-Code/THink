@@ -9,7 +9,7 @@ import { NextRequest, NextResponse } from "next/server";
 export async function GET(request: NextRequest){
     try {
 
-        connectDB()
+        await connectDB()
         const {searchParams} = new URL(request.url)
 
         const category = searchParams.get('ctg')?.toString()

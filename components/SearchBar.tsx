@@ -1,5 +1,5 @@
 "use client"
-import React, {useRef, useState} from 'react'
+import React, {useState} from 'react'
 
 const SearchBar = (blogs: {setAllBlogs:any, sectionName: string}) => {
     

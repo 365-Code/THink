@@ -7,7 +7,7 @@ import { NextResponse } from "next/server";
 
 export async function DELETE(request: Request){
     try{
-        connectDB()
+        await connectDB()
         const {searchParams} = new URL(request.url)
 
         const bId = searchParams.get('bId')

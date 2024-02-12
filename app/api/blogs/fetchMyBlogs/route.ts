@@ -4,12 +4,12 @@ import { NextResponse } from "next/server";
 
 export async function GET(request: Request){
     try{
-        connectDB()
+        await connectDB()
         const {searchParams} = new URL(request.url)
 
         const uId = searchParams.get('uId')
         
-        const blogs = await blogModel.find({postedBy: uId})
+        const blogs = await blogModel.find({postedBy: uId}).sort({updatedAt: -1});
 
         return NextResponse.json({
             success: true,

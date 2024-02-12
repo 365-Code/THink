@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 
 export async function PUT(request: Request) {
   try {
-    connectDB();
+    await connectDB();
 
     const comment = await request.json();
     const { searchParams } = new URL(request.url);

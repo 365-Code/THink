@@ -69,9 +69,9 @@ const Page = () => {
                 name="email"
                 value={credentials.email}
                 type="email"
-                autoComplete="off"
+                autoComplete="false"
                 placeholder="Enter Email"
-                className="w-full bg-transparent p-4 autofill:!bg-transparent"
+                className="w-full bg-transparent input-fill p-4"
               />
             </div>
             <div className="flex items-center gap-1 overflow-hidden rounded-lg border transition-all focus-within:border-blue-500">

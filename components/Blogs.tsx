@@ -6,8 +6,8 @@ import BlogCardSkeleton from "./BlogCardSkeleton";
 const Blogs = (props: { blogs: any }) => {
   
   return (
-    <main className="my-container-1">
-      <div className="grid w-full grid-cols-1 justify-items-center gap-4 space-y-4 sm:grid-cols-2 sm:space-y-0 min-[1000px]:grid-cols-3">
+    <main className="my-container-1 justify-items-center sm:justify-items-start grid sm:display-blogs-sm display-blogs gap-4 border">
+      {/* <div className="grid w-full grid-cols-1 justify-items-center gap-4 space-y-4 sm:grid-cols-2 sm:space-y-0 min-[1000px]:grid-cols-3"> */}
         {props.blogs
           ? props.blogs.map((blog: any) => (
               <BlogCard
@@ -20,7 +20,6 @@ const Blogs = (props: { blogs: any }) => {
               />
             ))
           : [1, 2, 3].map((i) => <BlogCardSkeleton key={i} />)}
-      </div>
     </main>
   );
 };

@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 export async function POST(request: Request){
 
     try{
-        connectDB()
+        await connectDB()
         const blog = await request.json()
         const {postedBy, thumbnail, title, description, categories} = blog
         await blogModel.create(blog);

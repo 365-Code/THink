@@ -27,12 +27,12 @@ const Page = () => {
   
   return (
     // <Blogs blogs={blogCards}/>
-    <>
+    <main className='mx-4 sm:mx-auto'>
     <SearchBar setAllBlogs={setAllBlogs} sectionName='blogs-blogs' />
     <div id='blogs-blogs'>
       <Blogs blogs={allBlogs}/>
     </div>
-    </>
+    </main>
   )
 }
 
