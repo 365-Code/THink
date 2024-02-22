@@ -8,8 +8,8 @@ const Contact = () => {
       <p className="font-light">Wanna ask something? Just type it and get in touch.</p>
     </div>
 
-      <div className="w-[600px] max-w-full flex items-center overflow-hidden h-[50px] focus-within:border-blue-600 border border-black transition-all">
-        <input type="text" className="w-full h-full p-4 transition-all" placeholder="Email" />
+      <div className="w-[600px] max-w-full flex items-center overflow-hidden h-[50px] border-black transition-all">
+        <input type="text" className="w-full h-full focus-visible:border-blue-500 focus-visible:border p-4 transition-all" placeholder="Email" />
         <button className="bg-blue-500 hover:bg-blue-600 px-4 h-full text-sm">Subscribe</button>
       </div>
     {/* <div className="w-[600px] max-w-full h-">

@@ -40,7 +40,7 @@ const Discover = (blogs: {setAllBlogs: any}) => {
   return (
     <section
       id="discover"
-      className="my-container space-y-4 rounded-md shadow-sm shadow-white/10"
+      className="my-container space-y-4 rounded-md shadow-sm shadow-white/40"
     >
       <div className="inner-container">
         <h1 className="text-2xl font-semibold sm:text-3xl">
@@ -70,7 +70,7 @@ const Discover = (blogs: {setAllBlogs: any}) => {
               <button type="submit" />
           </form>
 
-          <div className="custom-scrollbar w-full flex-1 overflow-x-scroll">
+          <div className="no-scrollbar w-full flex-1 overflow-x-scroll">
             <ul className="flex items-center gap-4">
               {
                 categories.map((ctg, i)=>(

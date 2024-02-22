@@ -1,4 +1,3 @@
-import { blogThumbnail } from "@/lib";
 import Image from "next/image";
 import React from "react";
 
@@ -8,6 +7,7 @@ const Blog = (blog: {
   title: string;
   description: string;
 }) => {
+
   let clrs = [
     {
       border: "border-purple-500",
@@ -61,8 +61,9 @@ const Blog = (blog: {
 
       <h2 className="text-lg">{blog.title}</h2>
 
-      <p className="whitespace-pre-wrap">{blog.description}</p>
-      {/* <pre className='break-words whitespace-pre-wrap'>{blog.description}</pre> */}
+      <p className="custom-scrollbar max-h-[400px] overflow-y-scroll whitespace-pre-wrap">
+        {blog.description}
+      </p>
     </div>
   );
 };

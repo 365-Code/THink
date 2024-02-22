@@ -62,8 +62,6 @@ const Page = () => {
     data.append("file", image);
     data.append("upload_preset", process.env.NEXT_PUBLIC_UPLOAD_PRESET || "");
     data.append("cloud_name", process.env.NEXT_PUBLIC_CLOUD_NAME || "");
-    console.log(process.env.NEXT_PUBLIC_UPLOAD_PRESET);
-    console.log(process.env.NEXT_PUBLIC_CLOUD_NAME);
     try{
 
       const result = await fetch(`https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUD_NAME || ""}/image/upload`, {
@@ -97,7 +95,6 @@ const Page = () => {
 
       const res = await response.json();
       if (res.success) {
-        console.log(res);
         nav.push(`/blogs/${res.blog._id}`);
         toast.success(res.msg);
       } else {
@@ -203,7 +200,7 @@ const Page = () => {
               onChange={handleChange}
               id=""
               placeholder="Write Your Blog's content"
-              className="custom-scrollbar h-full w-full resize-none rounded-lg p-2 outline-none"
+              className="no-scrollbar h-full w-full resize-none rounded-lg p-2 outline-none"
             ></textarea>
             <button
               onClick={addBlogHandler}

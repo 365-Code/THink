@@ -50,7 +50,7 @@ const Page = () => {
                 Interest
               </button>
             </div>
-            <div className="flex-1 overflow-y-scroll custom-scrollbar">
+            <div className="flex-1 overflow-y-scroll no-scrollbar">
             {selected == "education" ? (
               <p>
                 <span className="font-semibold">Education</span>: Currently

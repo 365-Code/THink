@@ -2,7 +2,13 @@
 import Image from "next/image";
 import React, { useState } from "react";
 
-const Carousel = ({ images }: { images: Array<string> }) => {
+const Carousel = ({
+  images,
+  content,
+}: {
+  images: Array<string>;
+  content?: Array<any>;
+}) => {
   const [currentImg, setCurrentImg] = useState(0);
 
   const handleCarousel = (slide: number) => {
@@ -12,7 +18,6 @@ const Carousel = ({ images }: { images: Array<string> }) => {
     } else {
       setCurrentImg(n - 1);
     }
-    console.log(images[currentImg]);
   };
 
   return (
@@ -22,13 +27,14 @@ const Carousel = ({ images }: { images: Array<string> }) => {
       data-carousel="slide"
     >
       {/* <!-- Carousel wrapper --> */}
-      <div className="relative h-56 overflow-hidden rounded-lg md:h-96 flex">
-        {/* <!-- Item 1 --> */}
+      <div className="relative flex h-56 overflow-hidden rounded-lg md:h-96">
         {images.map((img, ind) => (
           <div
             key={ind}
             className={`${
-              currentImg == ind ? "min-w-fit w-full max-w-full translate-x-0 animate-none" : "translate-x-full w-0 overflow-hidden transition-transform"
+              currentImg == ind
+                ? "w-full min-w-fit max-w-full translate-x-0 animate-none"
+                : "w-0 translate-x-full overflow-hidden transition-transform"
             }  duration-700 ease-in-out`}
             data-carousel-item
           >
@@ -42,9 +48,32 @@ const Carousel = ({ images }: { images: Array<string> }) => {
           </div>
         ))}
 
-        {/* <div className="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="/docs/images/carousel/carousel-1.svg" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-        </div> */}
+        {content?.length &&
+          content.map((c, i) => (
+            <div
+              key={i}
+              className={`${
+                currentImg == i
+                  ? "w-full min-w-fit max-w-full translate-x-0 animate-none"
+                  : "w-0 translate-x-full overflow-hidden transition-transform"
+              } absolute top-1/2 -translate-y-1/2 left-0 text-white duration-700 ease-in-out`}
+            >
+              <div className="flex items-center justify-center gap-4">
+                <Image
+                  alt="nothing"
+                  width={40}
+                  height={40}
+                  className="rounded-full"
+                  src={c.profile || ""}
+                />
+                <p>{c.user}</p>
+              </div>
+
+              <h3>{c.title}</h3>
+              <p className="mx-auto w-[600px] max-w-full">{c.description}</p>
+            </div>
+          ))}
+        {/* </div> */}
       </div>
       {/* <!-- Slider indicators --> */}
       <div className="absolute bottom-5 left-1/2 z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse">
@@ -52,7 +81,9 @@ const Carousel = ({ images }: { images: Array<string> }) => {
           <button
             key={ind}
             type="button"
-            className={`h-3 w-3 rounded-full ${currentImg == ind ? "bg-white" :"bg-white/30"}`}
+            className={`h-3 w-3 rounded-full ${
+              currentImg == ind ? "bg-white" : "bg-white/30"
+            }`}
             //   data-carousel-slide-to="0"
             onClick={() => setCurrentImg(ind)}
           />

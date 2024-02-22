@@ -66,7 +66,7 @@ const AddComment = (cmt: { comments: any, setComments: any }) => {
         <Image width={64} height={64} src={avatar} alt="" className="w-full h-full object-cover object-center" />
       </div>
       <div className="rounded-t-lg flex-1">
-        <textarea onChange={handleChange} name="comment" value={commentData} placeholder="Add your Comment" id="" rows={3} className="resize-none custom-scrollbar p-2 outline-none border-b-2 focus:border-b-purple-600 w-full"></textarea>
+        <textarea onChange={handleChange} name="comment" value={commentData} placeholder="Add your Comment" id="" rows={3} className="resize-none no-scrollbar p-2 outline-none border-b-2 focus:border-b-purple-600 w-full"></textarea>
         <div className="flex items-center justify-between px-2">
           <button className='relative'>
             <div className={`hidden md:block ${emoji ? "w-auto translate-x-0" : "w-0 translate-x-2"} overflow-hidden transition-all right-full bottom-full absolute`}>

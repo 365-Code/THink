@@ -115,7 +115,7 @@ const Page = () => {
             disabled={!edit}
             name="description"
             value={user?.description || ""}
-            className="focus-within:border-b-blue-500 custom-scrollbar w-full flex-1 resize-none border-b p-3 disabled:cursor-not-allowed"
+            className="focus-within:border-b-blue-500 no-scrollbar w-full flex-1 resize-none border-b p-3 disabled:cursor-not-allowed"
           />
         </div>
       </div>

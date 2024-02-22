@@ -10,17 +10,24 @@
   },
   "dependencies": {
     "@flaticon/flaticon-uicons": "^3.0.0",
+    "@mdx-js/loader": "^3.0.1",
+    "@mdx-js/react": "^3.0.1",
+    "@next/mdx": "^14.1.0",
     "@reduxjs/toolkit": "^1.9.7",
+    "@types/mdx": "^2.0.11",
     "emoji-picker-react": "^4.5.16",
     "firebase": "^10.6.0",
     "mongoose": "^8.0.1",
     "next": "14.0.3",
+    "next-mdx-remote": "^4.4.1",
     "react": "^18",
     "react-dom": "^18",
     "react-redux": "^8.1.3",
-    "react-toastify": "^9.1.3"
+    "react-toastify": "^9.1.3",
+    "yarn": "^1.22.21"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.10",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

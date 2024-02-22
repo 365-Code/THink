@@ -15,18 +15,9 @@
 }
 
 body{
-  background-color: #121212;
-  color: aliceblue;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100vw;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-  /* font-family: 'Roboto', sans-serif; */
-  /* background-color: #0A0A0A; */
-  /* background-color: #15292B; */
+  @apply bg-[#121212] text-slate-50 min-h-screen flex flex-col justify-between scroll-smooth;
+  /* width: 100vw;
+  overflow-x: hidden; */
 }
 
 h1,h2,h3,h4,h5,h6{
@@ -75,18 +66,12 @@ footer::before{
   position: absolute;
   top: 0;
   left: 0;
-  /* background: url(https://img.freepik.com/free-photo/abstract-circular-blinds-oscillation-background-3d-rings-wavy-surface-geometric-elements-displacement_1217-2527.jpg?size=626&ext=jpg&ga=GA1.1.1835354613.1698558582&semt=ais) no-repeat center center/cover; */
-  /* background: url('https://img.freepik.com/free-vector/realistic-polygonal-background_52683-59998.jpg?size=626&ext=jpg&ga=GA1.1.1835354613.1698558582&semt=ais') no-repeat center center/cover; */
   background: url('https://img.freepik.com/free-photo/free-photo-black-grunge-abstract-background-pattern-wallpaper_1340-34121.jpg?t=st=1701197260~exp=1701200860~hmac=b430dcc0c47e372f3d9d8b5ff1d2f5836bbfdf74b7bd9891561d6503e9f69ed6&w=740') no-repeat center center/cover;
   opacity: 0.8;
   z-index: -1;
 }
 
-
 /* Utilities */
-
-
-
 .selected-category:hover{
   text-shadow: none;
 }
@@ -104,14 +89,23 @@ footer::before{
   @apply underline;
 }
 
-.custom-scrollbar::-webkit-scrollbar{
+.no-scrollbar::-webkit-scrollbar{
   background-color: black;
   width: 0px;
   height: 0px;
 }
 
-.custom-scrollbar::-webkit-scrollbar-thumb{
+.no-scrollbar::-webkit-scrollbar-thumb{
   background-color: #1f1f1f;
+}
+
+.custom-scrollbar::-webkit-scrollbar{
+  width: 2px;
+  height: 2px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb{
+  @apply bg-slate-500;
 }
 
 .my-container{
@@ -127,5 +121,5 @@ footer::before{
 }
 
 .inner-container{
-  @apply py-12 px-4 space-y-4;
+  @apply py-10 px-4 space-y-4;
 }

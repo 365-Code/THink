@@ -15,24 +15,6 @@ export function splitWords(sentence: string, count: number){
     return sentence
 }
 
-// const [image, setImage ] = useState("");
-// const [ url, setUrl ] = useState("");
-// const uploadImage = () => {
-// const data = new FormData()
-// data.append("file", image)
-// data.append("upload_preset", "tutorial")
-// data.append("cloud_name","breellz")
-// fetch("  https://api.cloudinary.com/v1_1/breellz/image/upload",{
-// method:"post",
-// body: data
-// })
-// .then(resp => resp.json())
-// .then(data => {
-// setUrl(data.url)
-// })
-// .catch(err => console.log(err))
-// }
-
 export const categories = ["All", "Technical", "UI/UX", "Web", "Programming"]
 
 export const clrs = [

@@ -18,7 +18,7 @@ const Comments = (props: { comments: any }) => {
     <div className="flex max-h-screen flex-1 flex-col gap-4">
       <h3 className="mb-1 text-center font-semibold underline">Comments</h3>
       {
-        <div className="custom-scrollbar flex-1 overflow-y-scroll scroll-smooth transition-all">
+        <div className="no-scrollbar overflow-y-scroll scroll-smooth transition-all">
           {comments.length ? (
             comments?.map((c: any, ind: number) => (
               <Comment
@@ -29,7 +29,7 @@ const Comments = (props: { comments: any }) => {
             ))
           ) : (
               <h2 className="text-center text-lg font-semibold">
-                No Comments Found
+                No Comments Yet
               </h2>
           )}
         </div>
