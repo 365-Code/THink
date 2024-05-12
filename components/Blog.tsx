@@ -60,7 +60,7 @@ const Blog = (blog: {
         </ul>
       </div>
 
-      <h2 className="text-lg">{blog.title}</h2>
+      <h2 className="text-2xl font-semibold">{blog.title}</h2>
 
       {blog.description && <EditorPreview content={blog.description} />}
     </div>

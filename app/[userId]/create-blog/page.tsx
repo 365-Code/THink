@@ -64,6 +64,8 @@ const Page = () => {
     data.append("file", image);
     data.append("upload_preset", process.env.NEXT_PUBLIC_UPLOAD_PRESET || "");
     data.append("cloud_name", process.env.NEXT_PUBLIC_CLOUD_NAME || "");
+    console.log("working");
+    
     try {
       const result = await fetch(
         `https://api.cloudinary.com/v1_1/${
@@ -74,7 +76,6 @@ const Page = () => {
           body: data,
         },
       );
-
       const res = await result.json();
       setUrl(res.secure_url);
     } catch (error) {
@@ -114,8 +115,7 @@ const Page = () => {
   };
 
   const handleImage = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files) {
-      console.log(e.target.files[0]);
+    if (e.target.files?.length) {
       setImage(e.target.files[0]);
       uploadImage();
     }
@@ -209,15 +209,6 @@ const Page = () => {
 
           <div id="desc" className="relative flex-1">
             <Tiptap content={content} setContent={setContent} />
-            {/* <textarea
-              name="description"
-              value={blogData.description}
-              onChange={handleChange}
-              id=""
-              placeholder="Write Your Blog's content"
-              className="no-scrollbar h-full w-full resize-none rounded-lg p-2 outline-none"
-            ></textarea> */}
-            {/* <TipTapEditor /> */}
             <button
               onClick={addBlogHandler}
               // onClick={uploadImage}

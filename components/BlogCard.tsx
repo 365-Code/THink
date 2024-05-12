@@ -11,8 +11,8 @@ export default function BlogCard(blog: {
   datePost: string;
 }) {
   return (
-    <div className="flex w-full min-w-[250px] max-w-[350px] flex-1 flex-col space-y-2 sm:max-w-[320px]">
-      <div className="h-[350px] w-full overflow-hidden rounded-lg">
+    <Link href={`/blogs/${blog.id}`} className="flex w-full min-w-[300px] max-w-[400px] flex-1 flex-col space-y-2 sm:max-w-[320px]">
+      <div className="h-[300px] w-full overflow-hidden rounded-lg">
         <Image
           width={400}
           height={400}
@@ -22,11 +22,11 @@ export default function BlogCard(blog: {
         />
       </div>
       <div className="flex flex-1 flex-col ">
-        <h3 className="text-lg font-semibold">
+        <h2 className="text-lg font-semibold">
           {blog.title.slice(0, 25) + "..."}
-        </h3>
-        <p className="whitespace-pre-line text-sm">
-          {splitWords(blog.description, 32)}
+        </h2>
+        <p dangerouslySetInnerHTML={{__html: splitWords(blog.description, 32) as string}} className="hyphens-auto text-sm">
+          {/* {splitWords(blog.description, 32)} */}
         </p>
       </div>
 
@@ -41,11 +41,6 @@ export default function BlogCard(blog: {
           <span>Views</span>
         </div>
       </div>
-      <div className="flex  items-center text-center">
-        <Link href={`/blogs/${blog.id}`} className="unselected w-full">
-          Read More
-        </Link>
-      </div>
-    </div>
+    </Link>
   );
 }
