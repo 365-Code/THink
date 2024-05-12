@@ -16,7 +16,7 @@ const Blogs = (props: { blogs: any }) => {
               title={blog.title}
               description={blog.description}
               datePost={blog.datePost}
-              />
+            />
           ))
         : [1, 2, 3].map((i) => <BlogCardSkeleton key={i} />)}
     </main>
