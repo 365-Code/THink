@@ -1,8 +1,11 @@
 import blogModel from "@/models/blogModel";
+import connectDB from "@/utils/db";
 import { NextRequest, NextResponse } from "next/server";
 
+export const revalidate = 100
 export async function GET(req: NextRequest) {
   try {
+    await connectDB()
     const blogs = await blogModel
       .find({})
       .populate("postedBy")
