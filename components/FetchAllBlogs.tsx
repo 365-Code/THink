@@ -20,6 +20,7 @@ const FetchAllBlogs = () => {
   useEffect(() => {
     fetchAllBlogs();
   }, []);
+
   return (
     <div id="main-blogs">
       <Blogs blogs={allBlogs} />

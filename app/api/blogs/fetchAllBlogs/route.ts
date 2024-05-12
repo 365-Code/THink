@@ -2,15 +2,14 @@ import blogModel from "@/models/blogModel";
 import connectDB from "@/utils/db";
 import { NextRequest, NextResponse } from "next/server";
 
-export const revalidate = 60;
-export async function GET(req: NextRequest) {
+export const revalidate = 20;
+export async function GET() {
   try {
     await connectDB();
-    req.json();
     const blogs = await blogModel
       .find({})
-      .populate("postedBy")
-      .sort({ updatedAt: -1 });
+      .sort({ updatedAt: -1 })
+      .populate("postedBy");
     return NextResponse.json({ success: true, blogs }, { status: 200 });
   } catch (error: any) {
     return NextResponse.json(
