@@ -39,7 +39,7 @@ const Page = () => {
               Create Post
             </Link>
           </div>
-          {myBlogs.length ? (
+          {myBlogs.length > 0 ? (
             <div id="myBlogs-blogs">
               <Blogs blogs={myBlogs} />
             </div>

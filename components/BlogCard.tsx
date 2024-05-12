@@ -81,7 +81,7 @@ const BlogCard = ({ blog }: { blog: Blog }) => {
   return (
     <Link
       href={"/blogs/" + blog._id}
-      className="flex max-w-[400px] w-full flex-col gap-2 rounded-xl"
+      className="flex w-full max-w-[400px] flex-col gap-2 rounded-xl"
     >
       <div className="h-[230px] w-full">
         <Image

@@ -15,6 +15,21 @@ export function splitWords(sentence: string, count: number){
     return sentence
 }
 
+
+export type Blog = {
+    _id: string;
+    title: string;
+    description: string;
+    datePost: string;
+    postedBy: {
+      profile: string;
+      username: string;
+    };
+    thumbnail: string;
+    categories: string[];
+  };
+  
+
 export const categories = ["All", "Technical", "UI/UX", "Web", "Programming"]
 
 export const clrs = [

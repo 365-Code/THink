@@ -18,7 +18,7 @@ type Blog = {
 
 const Blogs = (props: { blogs: Blog[] }) => {
   return (
-    <main className="my-container-1 display-blogs grid gap-4 justify-center sm:justify-start">
+    <main className="my-container-1 display-blogs grid justify-center gap-4 sm:justify-start">
       {props.blogs
         ? props.blogs.map((blog) => <BlogCard key={blog._id} blog={blog} />)
         : [1, 2, 3].map((i) => <BlogCardSkeleton key={i} />)}

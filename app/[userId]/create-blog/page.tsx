@@ -65,7 +65,7 @@ const Page = () => {
     data.append("upload_preset", process.env.NEXT_PUBLIC_UPLOAD_PRESET || "");
     data.append("cloud_name", process.env.NEXT_PUBLIC_CLOUD_NAME || "");
     console.log("working");
-    
+
     try {
       const result = await fetch(
         `https://api.cloudinary.com/v1_1/${
@@ -124,11 +124,12 @@ const Page = () => {
   return (
     <>
       {authUser.loggedIn ? (
-        <main className="my-container-1 flex h-screen flex-col space-y-4">
+        <main className="my-container-1 flex md:flex-row flex-col gap-4">
+          <div className="flex flex-col gap-4">
           <label htmlFor="thumbnail" className="cursor-pointer">
             <div
               id="image"
-              className="flex h-[8rem] cursor-pointer items-center justify-center overflow-hidden rounded-xl hover:bg-[#141312]"
+              className="flex w-[400px] max-w-full h-[300px] cursor-pointer items-center justify-center overflow-hidden rounded-xl hover:bg-[#141312]"
             >
               <Image
                 width={1000}
@@ -206,13 +207,14 @@ const Page = () => {
               </li>
             ))}
           </ul>
+          </div>
 
           <div id="desc" className="relative flex-1">
             <Tiptap content={content} setContent={setContent} />
             <button
               onClick={addBlogHandler}
               // onClick={uploadImage}
-              className="absolute right-4 top-3 rounded-full bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
+              className="absolute right-4 top-3 transition-all rounded-full bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
             >
               Create
             </button>

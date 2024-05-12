@@ -52,7 +52,7 @@ input, textarea{
 }
 
 .display-blogs{
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, auto));
 }
 
 footer::before{
@@ -104,15 +104,15 @@ footer::before{
 }
 
 .my-container{
-  @apply sm:my-8 sm:mx-[4rem] sm:p-4 mx-4;
+  @apply sm:my-8 sm:mx-[2rem] md:mx-[4rem] sm:p-4 mx-4;
 }
 
 .my-container-1{
-  @apply sm:px-[4rem] sm:p-12 py-12 px-4;
+  @apply sm:px-[2rem] md:px-[4rem] sm:p-12 py-12 px-4;
 }
 
 .my-container-2{
-  @apply sm:px-[4rem] py-8 px-4;
+  @apply sm:px-[4rem] md:px-[4rem] py-8 px-4;
 }
 
 .inner-container{
