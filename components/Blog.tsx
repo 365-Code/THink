@@ -1,5 +1,7 @@
 import Image from "next/image";
 import React from "react";
+import EditorPreview from "./tiptap/EditorPreview";
+import "./tiptap/style.css";
 
 const Blog = (blog: {
   thumbnail: string;
@@ -7,7 +9,6 @@ const Blog = (blog: {
   title: string;
   description: string;
 }) => {
-
   let clrs = [
     {
       border: "border-purple-500",
@@ -61,9 +62,7 @@ const Blog = (blog: {
 
       <h2 className="text-lg">{blog.title}</h2>
 
-      <p className="custom-scrollbar max-h-[400px] overflow-y-scroll whitespace-pre-wrap">
-        {blog.description}
-      </p>
+      {blog.description && <EditorPreview content={blog.description} />}
     </div>
   );
 };

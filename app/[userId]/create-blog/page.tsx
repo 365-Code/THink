@@ -1,4 +1,6 @@
 "use client";
+import Tiptap from "@/components/tiptap/TipTap";
+import TipTapEditor from "@/components/tiptap/TipTapEditor";
 import { clrs, clrsLength } from "@/lib";
 import { addBlog } from "@/utils/redux/features/blogSlice";
 import Image from "next/image";
@@ -20,7 +22,7 @@ const Page = () => {
   useEffect(() => {
     if (!authUser.user) {
       nav.push("/");
-    } 
+    }
   }, [authUser.user]);
 
   // const [sCtg, setSctg] = useState('');
@@ -62,27 +64,33 @@ const Page = () => {
     data.append("file", image);
     data.append("upload_preset", process.env.NEXT_PUBLIC_UPLOAD_PRESET || "");
     data.append("cloud_name", process.env.NEXT_PUBLIC_CLOUD_NAME || "");
-    try{
+    try {
+      const result = await fetch(
+        `https://api.cloudinary.com/v1_1/${
+          process.env.NEXT_PUBLIC_CLOUD_NAME || ""
+        }/image/upload`,
+        {
+          method: "post",
+          body: data,
+        },
+      );
 
-      const result = await fetch(`https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUD_NAME || ""}/image/upload`, {
-        method: "post",
-        body: data,
-      })
-      
-      const res = await result.json()
-      setUrl(res.secure_url)
-    } catch(error){
+      const res = await result.json();
+      setUrl(res.secure_url);
+    } catch (error) {
       console.log(error);
       return error;
     }
   };
 
+  const [content, setContent] = useState("");
   const addBlogHandler = async () => {
     const postData = {
       ...blogData,
       thumbnail: url,
       categories: ctg,
       postedBy: authUser.user._id,
+      description: content,
     };
     try {
       const response = await fetch("/api/blogs/createBlog", {
@@ -106,32 +114,38 @@ const Page = () => {
   };
 
   const handleImage = (e: ChangeEvent<HTMLInputElement>) => {
-    if(e.target.files){
-      setImage( e.target.files[0])
-      uploadImage()
+    if (e.target.files) {
+      console.log(e.target.files[0]);
+      setImage(e.target.files[0]);
+      uploadImage();
     }
-
-  }
+  };
 
   return (
     <>
       {authUser.loggedIn ? (
         <main className="my-container-1 flex h-screen flex-col space-y-4">
           <label htmlFor="thumbnail" className="cursor-pointer">
-          <div
-            id="image"
-            className="flex h-[8rem] cursor-pointer items-center justify-center overflow-hidden rounded-xl hover:bg-[#141312]"
-          >
-            <Image
-              width={1000}
-              height={100}
-              src={url || blogData.thumbnail}
-              alt=""
-              className="h-full w-full object-cover object-center"
+            <div
+              id="image"
+              className="flex h-[8rem] cursor-pointer items-center justify-center overflow-hidden rounded-xl hover:bg-[#141312]"
+            >
+              <Image
+                width={1000}
+                height={100}
+                src={url || blogData.thumbnail}
+                alt=""
+                className="h-full w-full object-cover object-center"
               />
-          </div>
+            </div>
           </label>
-            <input id="thumbnail" type="file" className="hidden" value={""} onChange={handleImage} />
+          <input
+            id="thumbnail"
+            type="file"
+            className="hidden"
+            value={""}
+            onChange={handleImage}
+          />
 
           <div id="title" className=" relative flex flex-col gap-2 sm:flex-row">
             <div className="relative h-full w-fit">
@@ -194,18 +208,20 @@ const Page = () => {
           </ul>
 
           <div id="desc" className="relative flex-1">
-            <textarea
+            <Tiptap content={content} setContent={setContent} />
+            {/* <textarea
               name="description"
               value={blogData.description}
               onChange={handleChange}
               id=""
               placeholder="Write Your Blog's content"
               className="no-scrollbar h-full w-full resize-none rounded-lg p-2 outline-none"
-            ></textarea>
+            ></textarea> */}
+            {/* <TipTapEditor /> */}
             <button
               onClick={addBlogHandler}
               // onClick={uploadImage}
-              className="absolute bottom-4 right-4 rounded-full bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
+              className="absolute right-4 top-3 rounded-full bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
             >
               Create
             </button>

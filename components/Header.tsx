@@ -61,33 +61,47 @@ const Header = () => {
     }
   };
 
-  const [showNav, setShowNav] = useState(false)
+  const [showNav, setShowNav] = useState(false);
 
   return (
     <>
       {pathname !== "/auth/login" && pathname !== "/auth/register" && (
-        <header className="my-container-2 z-[2] flex w-screen items-center justify-between gap-4">
+        <header className="my-container-2 z-[2] flex w-full items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-          <i onClick={() => setShowNav(true)} className={`${showNav && "rotate-180"} transition-all fi fi-sr-menu-burger text-white cursor-pointer sm:hidden`} />
+            <i
+              onClick={() => setShowNav(true)}
+              className={`${
+                showNav && "rotate-180"
+              } fi fi-sr-menu-burger cursor-pointer text-white transition-all sm:hidden`}
+            />
 
-          <Link
-            href={"/"}
-            className="logo flex items-center gap-2 font-semibold"
+            <Link
+              href={"/"}
+              className="logo flex items-center gap-2 font-semibold"
             >
-            <div className="h-[64px] w-[64px] cursor-pointer overflow-hidden rounded-full">
-              <Image
-                width={64}
-                height={64}
-                src={"/logo.png"}
-                alt=""
-                className="h-full w-full object-cover object-center"
+              <div className="h-[64px] w-[64px] cursor-pointer overflow-hidden rounded-full">
+                <Image
+                  width={64}
+                  height={64}
+                  src={"/logo.png"}
+                  alt=""
+                  className="h-full w-full object-cover object-center"
                 />
-            </div>
-            <span>THink</span>
-          </Link>
               </div>
-          <nav className={`${showNav ? "left-0 top-0": "-left-full"} sm:left-0 transition-all fixed h-screen flex sm:h-auto w-full sm:w-auto flex-col sm:flex-row items-center gap-8 bg-black/70 sm:bg-transparent py-12 sm:p-0 sm:relative`}>
-            <i onClick={() => setShowNav(false)} className={`fi fi-sr-cross text-white cursor-pointer sm:hidden transition-all ${!showNav && "rotate-45"} `}/>
+              <span>THink</span>
+            </Link>
+          </div>
+          <nav
+            className={`${
+              showNav ? "left-0 top-0" : "-left-full"
+            } fixed flex h-screen w-full flex-col items-center gap-8 bg-black/70 py-12 transition-all sm:relative sm:left-0 sm:h-auto sm:w-auto sm:flex-row sm:bg-transparent sm:p-0`}
+          >
+            <i
+              onClick={() => setShowNav(false)}
+              className={`fi fi-sr-cross cursor-pointer text-white transition-all sm:hidden ${
+                !showNav && "rotate-45"
+              } `}
+            />
             <Link
               href="/"
               onClick={() => setShowNav(false)}
@@ -96,7 +110,7 @@ const Header = () => {
               Home
             </Link>
             <Link
-            onClick={() => setShowNav(false)}
+              onClick={() => setShowNav(false)}
               href="/blogs"
               className={`${
                 pathname == "/blogs" && "glow-text"
@@ -105,7 +119,7 @@ const Header = () => {
               Blogs
             </Link>
             <Link
-            onClick={() => setShowNav(false)}
+              onClick={() => setShowNav(false)}
               href={`/${authUser._id || "guest"}/my-blogs`}
               className={`${
                 pathname.endsWith("/my-blogs") && "glow-text"
@@ -114,7 +128,7 @@ const Header = () => {
               My Blogs
             </Link>
             <Link
-            onClick={() => setShowNav(false)}
+              onClick={() => setShowNav(false)}
               href="/about"
               className={`${
                 pathname == "/about" && "glow-text"
