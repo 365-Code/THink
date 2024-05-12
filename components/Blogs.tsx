@@ -3,20 +3,24 @@ import React from "react";
 import BlogCard from "./BlogCard";
 import BlogCardSkeleton from "./BlogCardSkeleton";
 
-const Blogs = (props: { blogs: any }) => {
+type Blog = {
+  _id: string;
+  title: string;
+  description: string;
+  datePost: string;
+  postedBy: {
+    profile: string;
+    username: string;
+  };
+  thumbnail: string;
+  categories: string[];
+};
+
+const Blogs = (props: { blogs: Blog[] }) => {
   return (
-    <main className="my-container-1 sm:display-blogs-sm display-blogs grid gap-4 sm:justify-items-start">
+    <main className="my-container-1 display-blogs grid gap-4 justify-center sm:justify-start">
       {props.blogs
-        ? props.blogs.map((blog: any) => (
-            <BlogCard
-              key={blog._id}
-              id={blog._id}
-              thumbnail={blog.thumbnail}
-              title={blog.title}
-              description={blog.description}
-              datePost={blog.datePost}
-            />
-          ))
+        ? props.blogs.map((blog) => <BlogCard key={blog._id} blog={blog} />)
         : [1, 2, 3].map((i) => <BlogCardSkeleton key={i} />)}
     </main>
   );

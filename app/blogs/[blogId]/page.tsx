@@ -26,7 +26,7 @@ const Page = () => {
   useEffect(() => {
     fetchBlog();
   }, [bId]);
-
+  
   return (
     <main className="my-container-1 flex min-h-screen flex-col gap-4 md:flex-row">
       {blogData && (

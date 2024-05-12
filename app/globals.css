@@ -52,10 +52,6 @@ input, textarea{
 }
 
 .display-blogs{
-  grid-template-columns: repeat(auto-fit, minmax(300px, 400fr));
-}
-
-.display-blogs-sm{
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
