@@ -5,7 +5,7 @@ import BlogCardSkeleton from "./BlogCardSkeleton";
 
 const Blogs = (props: { blogs: any }) => {
   return (
-    <main className="my-container-1 sm:display-blogs-sm display-blogs grid justify-items-center gap-4 sm:justify-items-start">
+    <main className="my-container-1 sm:display-blogs-sm display-blogs grid gap-4 sm:justify-items-start">
       {props.blogs
         ? props.blogs.map((blog: any) => (
             <BlogCard
